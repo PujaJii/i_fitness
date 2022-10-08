@@ -45,7 +45,7 @@ class _Register2State extends State<Register2> {
                 children: [
                   Hero(
                       tag: 'regLogo',
-                      child : Image.asset('assets/images/logo.png', scale: 2.2)),
+                      child : Image.asset('assets/images/logo.png', scale: 9)),
                   const SizedBox(height: 30),
                   MyWidgets.textView('Activeness', Colors.white, 30,
                       fontWeight: FontWeight.bold),

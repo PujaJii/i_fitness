@@ -38,7 +38,7 @@ class _Register1State extends State<Register1> {
                 children: [
                   Hero(
                       tag: 'regLogo',
-                      child: Image.asset('assets/images/logo.png', scale: 1.5)),
+                      child: Image.asset('assets/images/logo.png', scale: 5)),
                   const SizedBox(height: 30),
                   MyWidgets.textView('WHAT\'S YOUR GOAL?', Colors.white, 30, fontWeight: FontWeight.bold),
                   const SizedBox(height: 20,),

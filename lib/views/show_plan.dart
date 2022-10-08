@@ -52,13 +52,14 @@ class ShowPlanPage extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 15),
                 width: double.infinity,
                 height: 160,
-                decoration: const BoxDecoration(
-                    image: DecorationImage(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                    image: const DecorationImage(
                         image: AssetImage('assets/images/gym_l.png'),fit: BoxFit.cover)
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 15),
+                padding: const EdgeInsets.only(left: 15, top: 6),
                 child: MyWidgets.textView('12 - Week Body \nTransformation', Colors.white, 20,
                     fontWeight: FontWeight.bold),
               ),

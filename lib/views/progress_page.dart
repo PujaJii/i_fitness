@@ -152,7 +152,8 @@ class _ProgressPageState extends State<ProgressPage> {
                             ),
                             margin: const EdgeInsets.only(right: 8),
                             child: Center(
-                                child: MyWidgets.textView('Show Workouts', Colors.white, 16,fontWeight: FontWeight.bold)
+                                child: MyWidgets.textView('Show Workouts',
+                                    Colors.white, 16,fontWeight: FontWeight.bold)
                             ),
                           ),
                         ),
@@ -171,7 +172,8 @@ class _ProgressPageState extends State<ProgressPage> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(left: 20, top: 10),
-                          child: MyWidgets.textView('Challenges', Colors.white, 17,fontWeight: FontWeight.bold),
+                          child: MyWidgets.textView('Challenges', Colors.white,
+                              17,fontWeight: FontWeight.bold),
                         ),
                          Padding(
                           padding: const EdgeInsets.only(right: 20, top: 10),
@@ -292,7 +294,8 @@ class _ProgressPageState extends State<ProgressPage> {
                                         setState(() {
                                         });
                                       },
-                                      child: const Icon(Icons.delete_forever,color: Colors.white,size: 30,))),
+                                      child: const Icon(Icons.delete_forever,color: Colors.white,size: 30,)
+                                  )),
                             ],
                           ),
                         );
@@ -323,7 +326,6 @@ class _ProgressPageState extends State<ProgressPage> {
                         ),
                         InkWell(
                           onTap: () {
-                            // print(imageFile.toString().length);
                             _getFromCamera();
                             setState(() {
                             });

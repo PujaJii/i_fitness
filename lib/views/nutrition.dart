@@ -42,7 +42,7 @@ class NutritionPage extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               child: Image.asset(
-                'assets/images/spbg.jpg',
+                'assets/images/loginbg.jpg',
                 fit: BoxFit.cover,
               )
           ),

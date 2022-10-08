@@ -91,7 +91,7 @@ class _LoginViewState extends State<LoginView> {
                     child: TextFormField(
                         obscureText: true,
                         controller: userController.passwordTEC,
-                        keyboardType: TextInputType.datetime,
+                        // keyboardType: TextInputType.datetime,
                         textInputAction: TextInputAction.next,
                         style: TextStyle(fontSize: 13.5, color: AppColors.white),
                         validator: (input) =>
