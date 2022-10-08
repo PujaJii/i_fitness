@@ -7,6 +7,7 @@ import 'package:i_fitness/views/start_workout.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:inview_notifier_list/inview_notifier_list.dart';
+import '../styles/app_colors.dart';
 import '../styles/commonmodule/header.dart';
 import '../styles/commonmodule/my_widgets.dart';
 import 'customise_workout.dart';
@@ -26,7 +27,7 @@ class WorkOut extends StatelessWidget {
         workoutController.getVideoList("0");
       }, builder: (controller) {
         if (controller.isLoading.value) {
-          return const Center(child: CircularProgressIndicator());
+          return Center(child: CircularProgressIndicator(color: AppColors.btnColor2,));
         } else {
           print('Data fetched');
           return

@@ -27,7 +27,7 @@ class _LoginViewState extends State<LoginView> {
           Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
-              child: Image.asset('assets/images/loginbg.jpg', fit: BoxFit.cover,)
+              child: Image.asset('assets/images/spbg1.jpg', fit: BoxFit.cover,)
           ),
           Positioned(
             top: 100,
@@ -37,10 +37,10 @@ class _LoginViewState extends State<LoginView> {
                 children: [
                   Hero(
                       tag: 'logo',
-                      child: Image.asset('assets/images/logo.png', scale: 2.2)),
+                      child: Image.asset('assets/images/logo.png', scale: 10)),
                   const SizedBox(height: 30),
-                  MyWidgets.textView('LOGIN', Colors.white, 30, fontWeight: FontWeight.bold),
-                    MyWidgets.textView('Here', Colors.white, 20),
+                  MyWidgets.textView('LOGIN', Colors.black, 30, fontWeight: FontWeight.bold),
+                    MyWidgets.textView('Here', Colors.black, 20),
                 ],
               )),
           Positioned(

@@ -19,7 +19,7 @@ class HeaderView extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 15,),
               child: Image.asset('assets/images/logo.png',
-                width: 70,height: 70,),
+                  scale: 16),
             ),
             Row(
               children: [

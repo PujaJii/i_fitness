@@ -26,7 +26,7 @@ class _RegisterViewState extends State<RegisterView> {
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               child: Image.asset(
-                'assets/images/loginbg.jpg',
+                'assets/images/spbg2.jpg',
                 fit: BoxFit.cover,
               )),
           Positioned(
@@ -35,8 +35,8 @@ class _RegisterViewState extends State<RegisterView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Image.asset('assets/images/logo.png', scale: 2.2),
-                  const SizedBox(height: 30),
+                  Image.asset('assets/images/logo.png', scale: 9),
+                  const SizedBox(height: 20),
                   MyWidgets.textView('CREATE', Colors.white, 30,
                       fontWeight: FontWeight.bold),
                   MyWidgets.textView('Account', Colors.white, 20),

@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import '../styles/app_colors.dart';
+
 class SplashView extends StatelessWidget {
   var box = GetStorage();
 
@@ -34,7 +36,7 @@ class SplashView extends StatelessWidget {
                     .of(context)
                     .size
                     .height,
-                child: Image.asset('assets/images/spbg.jpg', fit: BoxFit.cover,)
+                child: Image.asset('assets/images/spbg1.jpg', fit: BoxFit.cover,)
             ),
             //getstbg.png
             Positioned(
@@ -42,11 +44,11 @@ class SplashView extends StatelessWidget {
                 right: 0,
                 child: Hero(
                   tag: 'logo',
-                    child: Image.asset('assets/images/logo.png', scale: 1.4))),
+                    child: Image.asset('assets/images/logo.png', scale: 9))),
 
             Positioned(
-                left: 0,
-                right: 0,
+                left: 35,
+                right: 35,
                 bottom: 15,
                 child: Column(
                   children: [
@@ -58,8 +60,37 @@ class SplashView extends StatelessWidget {
                             Get.to(() =>  LoginView());
                           }
                         },
-                        child: Image.asset(
-                            'assets/images/getstbg.png', scale: 1.2)),
+                        child: Container(
+                          height: 52,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                              gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              AppColors.themeColor,
+                              Colors.blueAccent,
+                            ],
+                          )
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              MyWidgets.textView('Get Started', Colors.white, 20),
+                              const SizedBox(width: 15,),
+                              Container(
+                                height: 20,
+                                width: 20,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                child: const Icon(Icons.arrow_forward_ios,size: 15),
+                              )
+                            ],
+                          ),
+                        )
+                    ),
                     const SizedBox(height: 6),
                     MyWidgets.textView(
                         'My continuing, you accept our Terms of Service\nand acknowledge receipt of out Privacy Policy',

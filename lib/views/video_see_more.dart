@@ -1,4 +1,5 @@
 import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
+import 'package:i_fitness/views/my_video_view.dart';
 import 'package:i_fitness/views/new_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -40,16 +41,26 @@ class SeeMoreVideo extends StatelessWidget {
                     ),
                     itemCount: homeController.videoList.length,
                     itemBuilder: (context, index) {
-                      return Container(
-                        margin: const EdgeInsets.fromLTRB(12, 0, 12, 12),
-                        width: 100,
-                        height: 200,
-                        decoration:  BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.white,
+                      return InkWell(
+                        onTap: () {
+                          Get.to(() =>  MyVideoView(
+                            homeController.videoList[index].link!,
+                            homeController.videoList[index].title!,
+                            homeController.videoList[index].description!,
+                            homeController.videoList[index].type!,
+                          ));
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.fromLTRB(12, 0, 12, 12),
+                          width: 100,
+                          height: 200,
+                          decoration:  BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white,
+                          ),
+                            child: NewView(
+                                homeController.videoList[index].link!)
                         ),
-                          child: NewView(
-                              homeController.videoList[index].link!)
                       );
                     },
                   )

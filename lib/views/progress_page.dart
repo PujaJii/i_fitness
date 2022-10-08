@@ -56,8 +56,7 @@ class _ProgressPageState extends State<ProgressPage> {
                           padding: const EdgeInsets.only(right: 20, top: 10),
                           child: InkWell(
                               onTap: () {
-                                // Get.to(const SeeMore());
-
+                                // Get.to(const TouchLight());
                               },
                               child: MyWidgets.textView('See more', Colors.white, 15)
                           ),
@@ -146,8 +145,8 @@ class _ProgressPageState extends State<ProgressPage> {
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter,
                                   colors: [
+                                    Colors.blueAccent,
                                     AppColors.themeColor,
-                                    Colors.purple,
                                   ],
                                 )
                             ),
@@ -220,8 +219,8 @@ class _ProgressPageState extends State<ProgressPage> {
                                           begin: Alignment.topCenter,
                                           end: Alignment.bottomCenter,
                                           colors: [
+                                            Colors.blueAccent,
                                             AppColors.themeColor,
-                                            Colors.purple,
                                           ],
                                         )),
                                         child: Center(
@@ -291,7 +290,6 @@ class _ProgressPageState extends State<ProgressPage> {
                                       onTap: () {
                                         imageFileList!.remove(imageFileList![index]);
                                         setState(() {
-
                                         });
                                       },
                                       child: const Icon(Icons.delete_forever,color: Colors.white,size: 30,))),
@@ -339,8 +337,8 @@ class _ProgressPageState extends State<ProgressPage> {
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter,
                                   colors: [
+                                    Colors.blueAccent,
                                     AppColors.themeColor,
-                                    Colors.purple,
                                   ],
                                 )),margin: const EdgeInsets.only(right: 8),
                             child: const Center(
@@ -411,8 +409,8 @@ class _ProgressPageState extends State<ProgressPage> {
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter,
                                   colors: [
+                                    Colors.blueAccent,
                                     AppColors.themeColor,
-                                    Colors.purple,
                                   ],
                                 )),margin: const EdgeInsets.only(right: 8),
                             child: const Center(

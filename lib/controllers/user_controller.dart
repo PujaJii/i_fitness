@@ -73,7 +73,6 @@ class UserController extends GetxController{
         String name = api_response.userData!.name.toString();
         String email = api_response.userData!.email.toString();
 
-
         box.write('id', id);
         box.write('name', name);
         box.write('email', email);

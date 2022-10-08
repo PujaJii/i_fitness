@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/cat_video_controller.dart';
+import '../styles/app_colors.dart';
 
 class CategoryVideos extends StatelessWidget {
   String cat_id;
@@ -22,7 +23,7 @@ class CategoryVideos extends StatelessWidget {
         catVideoController.getVideoList(cat_id);
       }, builder: (controller) {
         if (controller.isLoading.value) {
-          return const Center(child: CircularProgressIndicator());
+          return Center(child: CircularProgressIndicator(color: AppColors.btnColor2,));
         } else {
           print('Data fetched');
           return

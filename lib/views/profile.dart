@@ -112,8 +112,8 @@ class _ProfilePageState extends State<ProfilePage> {
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
                             colors: [
+                              Colors.blueAccent,
                               AppColors.themeColor,
-                              Colors.purple,
                             ],
                           )),
                       child: Center(

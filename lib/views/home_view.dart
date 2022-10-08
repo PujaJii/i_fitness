@@ -1,4 +1,5 @@
 import 'package:i_fitness/controllers/home_controller.dart';
+import 'package:i_fitness/styles/app_colors.dart';
 import 'package:i_fitness/styles/commonmodule/header.dart';
 import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
 import 'package:i_fitness/views/blogSeeMore.dart';
@@ -23,7 +24,7 @@ class HomeView extends StatelessWidget {
       homeController.getHomeImg('img');
       }, builder: (controller) {
       if (controller.isLoading.value) {
-        return const Center(child: CircularProgressIndicator());
+        return Center(child: CircularProgressIndicator(color: AppColors.btnColor2,));
       } else {
         // print('Data fetched');
         return Stack(
@@ -88,7 +89,8 @@ class HomeView extends StatelessWidget {
                                     controller.videoList[index].title!,
                                     controller.videoList[index].description!,
                                     controller.videoList[index].type!,
-                                  ));
+                                  )
+                                  );
                                 },
                                 child: Container(
                                     width: 240,

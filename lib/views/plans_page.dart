@@ -122,8 +122,8 @@ class PlansPage extends StatelessWidget {
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
+                        Colors.blueAccent,
                         AppColors.themeColor,
-                        Colors.purple,
                       ],
                     )),
                 child: Center(

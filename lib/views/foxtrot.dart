@@ -7,6 +7,8 @@ import 'package:i_fitness/views/start_workout.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../styles/app_colors.dart';
+
 class FoxtrotPage extends StatelessWidget {
   CatVideoController catVideoController = Get.put(CatVideoController());
 
@@ -19,7 +21,7 @@ class FoxtrotPage extends StatelessWidget {
           },
           builder: (controller) {
             if (controller.isLoading.value) {
-              return const Center(child: CircularProgressIndicator());
+              return Center(child: CircularProgressIndicator(color: AppColors.btnColor2,));
             } else {
               return Stack(
                 children: [
