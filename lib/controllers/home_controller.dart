@@ -18,6 +18,7 @@ class HomeController extends GetxController{
 
       if (api_response != null) {
         if (api_response.response == 'ok') {
+          // videoList.assignAll(api_response.data!);
           videoList.assignAll(api_response.data!);
         }
       }

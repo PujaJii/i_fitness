@@ -9,7 +9,6 @@ class UserApi{
   static Future<UserModel> getLogin(String email, String password) async {
     var baseUrl = GlobalConfiguration().get('base_url');
 
-
     var response = await client.post(Uri.parse('${baseUrl}login'), body: {'email': email, 'password':password});
 
     if (response.statusCode == 200) {
@@ -23,7 +22,8 @@ class UserApi{
     var baseUrl = GlobalConfiguration().get('base_url');
 
 
-    var response = await client.post(Uri.parse('${baseUrl}register'), body: {'name': name, 'email':email,'password':password});
+    var response = await client.post(Uri.parse('${baseUrl}register'),
+        body: {'name': name, 'email':email,'password':password});
 
     if (response.statusCode == 200) {
       var jsonString = response.body;

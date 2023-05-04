@@ -87,7 +87,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         border: Border.all(color: Colors.black)),
                       child: MyWidgets.textView('Change Cover', Colors.black, 17)),
                 ),
-              ), const SizedBox(height: 40,),
+              ), const SizedBox(height: 40),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

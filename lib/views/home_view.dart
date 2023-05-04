@@ -19,7 +19,8 @@ class HomeView extends StatelessWidget {
   return Scaffold(
     body:
             //GetX initialized
-    GetX<HomeController>(initState: (context) {
+    GetX<HomeController>(
+        initState: (context) {
       homeController.getHomeVideo('video');
       homeController.getHomeImg('img');
       }, builder: (controller) {

@@ -7,6 +7,7 @@ import '../styles/commonmodule/my_snack_bar.dart';
 import '../views/home.dart';
 import '../views/register1.dart';
 
+
 class UserController extends GetxController{
   TextEditingController emailTEC = TextEditingController();
   TextEditingController passwordTEC = TextEditingController();

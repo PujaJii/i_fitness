@@ -10,7 +10,6 @@ import 'package:get/get.dart';
 class LoginView extends StatefulWidget {
 
 
-
   @override
   _LoginViewState createState() => _LoginViewState();
 }
@@ -114,8 +113,10 @@ class _LoginViewState extends State<LoginView> {
                               borderRadius: BorderRadius.circular(50),
                               borderSide: BorderSide(
                                 color: AppColors.white,
-                              )),
-                        )),
+                              )
+                          ),
+                        )
+                    ),
                   ),
                  const SizedBox(height: 20),
                   ElevatedButton(
@@ -124,7 +125,6 @@ class _LoginViewState extends State<LoginView> {
                         if (_formKey.currentState!.validate()) {
                           userController.getLogin();
                         }
-
 
                       }, child: MyWidgets.textView("Login", AppColors.white, 14, fontWeight: FontWeight.bold))
                 ],

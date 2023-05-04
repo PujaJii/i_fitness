@@ -83,7 +83,7 @@ class _ProgressPageState extends State<ProgressPage> {
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0, left: 5, right: 5),
                       child: Container(
-                        height: 1,
+                        height: 1.5,
                         width: double.infinity,
                         color: Colors.grey,
                       ),
@@ -136,6 +136,7 @@ class _ProgressPageState extends State<ProgressPage> {
                           onTap: () {
                             // Get.to(() =>  const UrlCall(title: 'UrlCall',));
                           },
+
                           child: Container(
                             height: 35,
                             width: 150,

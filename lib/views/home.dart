@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
               child: BottomNavigationBar(
                 backgroundColor: Colors.black.withOpacity(0.1), //here set your transparent level
                 elevation: 0,
-                selectedItemColor:  Colors.purple[700],
+                selectedItemColor: Colors.purple[700],
                 unselectedItemColor: Colors.white,
                 type: BottomNavigationBarType.fixed,
                 showSelectedLabels: false,

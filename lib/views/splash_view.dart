@@ -28,14 +28,8 @@ class SplashView extends StatelessWidget {
         Stack(
           children: [
             SizedBox(
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width,
-                height: MediaQuery
-                    .of(context)
-                    .size
-                    .height,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
                 child: Image.asset('assets/images/spbg1.jpg', fit: BoxFit.cover,)
             ),
             //getstbg.png
@@ -44,7 +38,8 @@ class SplashView extends StatelessWidget {
                 right: 0,
                 child: Hero(
                   tag: 'logo',
-                    child: Image.asset('assets/images/logo.png', scale: 9))),
+                    child: Image.asset('assets/images/logo.png', scale: 9))
+            ),
 
             Positioned(
                 left: 35,
