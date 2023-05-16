@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 import '../apis/video_api.dart';
-import '../models/vodeo_model.dart';
+import '../models/video_model.dart';
 
 class  CatVideoController extends GetxController{
   var isLoading = false.obs;

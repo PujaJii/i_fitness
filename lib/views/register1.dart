@@ -38,9 +38,9 @@ class _Register1State extends State<Register1> {
                 children: [
                   Hero(
                       tag: 'regLogo',
-                      child: Image.asset('assets/images/logo.png', scale: 5)),
+                      child: Image.asset('assets/images/logo.png', scale: 9)),
                   const SizedBox(height: 30),
-                  MyWidgets.textView('WHAT\'S YOUR GOAL?', Colors.white, 30, fontWeight: FontWeight.bold),
+                  MyWidgets.textView('WHAT\'S YOUR GOAL?', Colors.white, 25, fontWeight: FontWeight.bold),
                   const SizedBox(height: 20,),
                   InkWell(
                     onTap: () {
@@ -57,25 +57,26 @@ class _Register1State extends State<Register1> {
                            begin: Alignment.topCenter,
                            end: Alignment.bottomCenter,
                            colors: isSelected1 ? [
-                             Colors.purple,
-                             AppColors.btnColor,
+                             const Color(0xc8214ed3),
+                             const Color(0x49214ed3),
+
                            ]:
                            [
-                             AppColors.themeColor,
-                             AppColors.themeColor,
+                             const Color(0xff214ed3),
+                             const Color(0xff214ed3),
                            ]
                        ),
                          borderRadius: BorderRadius.circular(30),
                      ),
                      child: Column(
+                       crossAxisAlignment: CrossAxisAlignment.center,
+                       mainAxisAlignment: MainAxisAlignment.center,
                        children: [
-                         Center(
-                             child: MyWidgets.textView('Loose weight',
-                                 Colors.white, 17,
-                                 fontWeight: FontWeight.bold)),
-                         Center(
-                             child: MyWidgets.textView('Get lean fast & healthy',
-                                 Colors.white, 14)),
+                         MyWidgets.textView('Loose weight',
+                             Colors.white, 17,
+                             fontWeight: FontWeight.bold),
+                         MyWidgets.textView('Get lean fast & healthy',
+                             Colors.white, 14),
                        ],
                      ),
                  ),
@@ -96,24 +97,25 @@ class _Register1State extends State<Register1> {
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                           colors: isSelected2? [
-                            Colors.purple,
-                            AppColors.btnColor,
+                            const Color(0xc8214ed3),
+                            const Color(0x49214ed3),
                           ]: [
-                            AppColors.themeColor,
-                            AppColors.themeColor,
+                            const Color(0xff214ed3),
+                            const Color(0xff214ed3),
+
                           ]
                         ),
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Center(
-                              child: MyWidgets.textView('Get Lean',
-                                  Colors.white, 17,
-                                  fontWeight: FontWeight.bold)),
-                          Center(
-                              child: MyWidgets.textView('Tone up & get in better shape',
-                                  Colors.white, 14)),
+                          MyWidgets.textView('Get Lean',
+                              Colors.white, 17,
+                              fontWeight: FontWeight.bold),
+                          MyWidgets.textView('Tone up & get in better shape',
+                              Colors.white, 14),
                         ],
                       ),
                     ),

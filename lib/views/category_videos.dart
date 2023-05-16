@@ -10,14 +10,12 @@ import '../controllers/cat_video_controller.dart';
 import '../styles/app_colors.dart';
 
 class CategoryVideos extends StatelessWidget {
-  String cat_id;
-
-  CategoryVideos(this.cat_id, {Key? key}) : super(key: key);
-
-  CatVideoController catVideoController = Get.put(CatVideoController());
+  final String cat_id;
+  const CategoryVideos(this.cat_id, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    CatVideoController catVideoController = Get.put(CatVideoController());
     return Scaffold(
       body: GetX<CatVideoController>(initState: (context) {
         catVideoController.getVideoList(cat_id);
@@ -25,7 +23,7 @@ class CategoryVideos extends StatelessWidget {
         if (controller.isLoading.value) {
           return Center(child: CircularProgressIndicator(color: AppColors.btnColor2,));
         } else {
-          print('Data fetched');
+          debugPrint('Data fetched');
           return
             Stack(
               children: [
@@ -76,7 +74,7 @@ class CategoryVideos extends StatelessWidget {
                               const SizedBox(width: 20,),
                               InkWell(
                                 onTap: () {
-                                  Get.to(() => ProfilePage(10));
+                                  Get.to(() => const ProfilePage(10));
                                 },
                                 child: const Hero(
                                   tag: 'a10',

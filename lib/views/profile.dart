@@ -15,8 +15,8 @@ import '../controllers/home_controller.dart';
 import '../styles/button_style.dart';
 
 class ProfilePage extends StatefulWidget {
-  int index;
-  ProfilePage(this.index, {Key? key}) : super(key: key);
+  final int index;
+  const ProfilePage(this.index, {Key? key}) : super(key: key);
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -97,7 +97,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   //     MyWidgets.textView(' | 0 Following', Colors.white, 12),
                   //   ],
                   // ),
-                 const SizedBox(height: 5,),
+                 const SizedBox(height: 15,),
                   InkWell(
                     onTap: () {
                       showLogOutDialog();
@@ -155,10 +155,11 @@ class _ProfilePageState extends State<ProfilePage> {
                           MyWidgets.textView('  Edit Profile', Colors.white, 14)
                         ],
                       ),
-                    ),const SizedBox(height: 15,),
+                    ),
+                    const SizedBox(height: 15,),
                     InkWell(
                       onTap: () {
-                        showAccountDialog();
+                        //showAccountDialog();
                       },
                       child: Row(
                         children: [
@@ -171,7 +172,8 @@ class _ProfilePageState extends State<ProfilePage> {
                           MyWidgets.textView('  Account', Colors.white, 14)
                         ],
                       ),
-                    ),const SizedBox(height: 15,),
+                    ),
+                    const SizedBox(height: 15,),
                     Row(
                       children: [
                         const SizedBox(width: 15,),
@@ -212,7 +214,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),const SizedBox(height: 15,),
                     InkWell(
                       onTap: () {
-                        Get.to(()=> PrivacyPage('  Privacy'));
+                        Get.to(()=> const PrivacyPage('  Privacy'));
                       },
                       child: Row(
                         children: [
@@ -249,7 +251,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           const SizedBox(height: 10,),
                           InkWell(
                             onTap: () {
-                              Get.to(()=> PrivacyPage('Terms & conditions'));
+                              Get.to(()=> const PrivacyPage('Terms & conditions'));
                             },
                               child: MyWidgets.textView('Terms & conditions', Colors.white, 14)),
                           const SizedBox(height: 15,),
@@ -323,6 +325,7 @@ class _ProfilePageState extends State<ProfilePage> {
       });
     }
   }
+
   showLogOutDialog() async {
     return showDialog(
       context: context,
@@ -345,8 +348,8 @@ class _ProfilePageState extends State<ProfilePage> {
               child: const Text('Log Out',style: TextStyle(color: Colors.white)),
               onPressed: () {
                 // Navigator.of(context).pop();
-                box.write('isLoading', 'false');
-                Get.offAll(() => LoginView());
+                box.write('isLoading', false);
+                Get.offAll(() => const LoginView());
               },
             ),
           ],
@@ -354,7 +357,7 @@ class _ProfilePageState extends State<ProfilePage> {
       },
     );
   }
-  showAccountDialog() async {
+  _showAccountDialog() async {
     return showDialog(
       context: context,
       barrierColor: Colors.transparent,
@@ -376,8 +379,8 @@ class _ProfilePageState extends State<ProfilePage> {
               child: const Text('Log Out',style: TextStyle(color: Colors.white)),
               onPressed: () {
                 // Navigator.of(context).pop();
-                box.write('isLoading', 'false');
-                Get.offAll(() => LoginView());
+                box.write('isLoading', false);
+                Get.offAll(() => const LoginView());
               },
             ),
           ],

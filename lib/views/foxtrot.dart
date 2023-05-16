@@ -10,10 +10,11 @@ import 'package:get/get.dart';
 import '../styles/app_colors.dart';
 
 class FoxtrotPage extends StatelessWidget {
-  CatVideoController catVideoController = Get.put(CatVideoController());
+  const FoxtrotPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    CatVideoController catVideoController = Get.put(CatVideoController());
     return Scaffold(
         body: GetX<CatVideoController>(
           initState: (context) {
@@ -71,7 +72,7 @@ class FoxtrotPage extends StatelessWidget {
                                 const SizedBox(width: 20,),
                                 InkWell(
                                   onTap: () {
-                                    Get.to(() => ProfilePage(5));
+                                    Get.to(() => const ProfilePage(5));
                                   },
                                   child: const Hero(
                                     tag: 'a5',

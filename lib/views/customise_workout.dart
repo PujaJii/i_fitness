@@ -86,8 +86,9 @@ class _CustomiseWorkoutState extends State<CustomiseWorkout> {
                 child: Row(
                   children: [
                     Container(
-                      width: 130,
-                      height: 35,
+                      //width: 130,
+                      height: 27,
+                      padding: const EdgeInsets.only(right: 15),
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),
                           gradient: const LinearGradient(
                           begin: Alignment.bottomCenter,
@@ -111,8 +112,9 @@ class _CustomiseWorkoutState extends State<CustomiseWorkout> {
                     ),
                     const SizedBox(width: 5,),
                     Container(
-                      width: 100,
-                      height: 35,
+                      //width: 100,
+                      height: 27,
+                      padding: const EdgeInsets.only(right: 15),
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),
                           gradient: const LinearGradient(
                               begin: Alignment.bottomCenter,
@@ -135,8 +137,9 @@ class _CustomiseWorkoutState extends State<CustomiseWorkout> {
                       ),
                     ), const SizedBox(width: 5,),
                     Container(
-                      width: 140,
-                      height: 35,
+                      //width: 140,
+                      height: 27,
+                      padding: const EdgeInsets.only(right: 15),
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),
                           gradient: const LinearGradient(
                               begin: Alignment.bottomCenter,
@@ -160,14 +163,15 @@ class _CustomiseWorkoutState extends State<CustomiseWorkout> {
                     ),
                   ],
                 ),
-              ),const SizedBox(height: 20,),
+              ),const SizedBox(height: 15,),
               Padding(
                 padding: const EdgeInsets.only(left: 8.0,top: 8),
                 child: Row(
                   children: [
                     Container(
-                      width: 140,
-                      height: 35,
+                      //width: 140,
+                      height: 27,
+                      padding: const EdgeInsets.only(right: 15),
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),
                           gradient: const LinearGradient(
                               begin: Alignment.bottomCenter,
@@ -191,8 +195,9 @@ class _CustomiseWorkoutState extends State<CustomiseWorkout> {
                       ),
                     ),const SizedBox(width: 5,),
                     Container(
-                      width: 110,
-                      height: 35,
+                      //width: 110,
+                      height: 27,
+                      padding: const EdgeInsets.only(right: 15),
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),
                           gradient: const LinearGradient(
                               begin: Alignment.bottomCenter,
@@ -217,7 +222,7 @@ class _CustomiseWorkoutState extends State<CustomiseWorkout> {
                   ],
                 ),
               ),
-              const SizedBox(height: 20,),
+              //const SizedBox(height: 8,),
               Padding(
                 padding: const EdgeInsets.only(top: 20,left: 15),
                 child: MyWidgets.textView('Difficulty', Colors.white, 20, fontWeight: FontWeight.bold),
@@ -227,8 +232,9 @@ class _CustomiseWorkoutState extends State<CustomiseWorkout> {
                 child: Row(
                   children: [
                     Container(
-                      width: 110,
-                      height: 35,
+                      //width: 110,
+                      height: 27,
+                      padding: const EdgeInsets.only(right: 15),
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),
                           gradient: const LinearGradient(
                               begin: Alignment.bottomCenter,
@@ -252,8 +258,9 @@ class _CustomiseWorkoutState extends State<CustomiseWorkout> {
                     ),
                     const SizedBox(width: 5,),
                     Container(
-                      width: 150,
-                      height: 35,
+                     // width: 150,
+                      height: 27,
+                      padding: const EdgeInsets.only(right: 15),
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),
                           gradient: const LinearGradient(
                               begin: Alignment.bottomCenter,
@@ -276,8 +283,9 @@ class _CustomiseWorkoutState extends State<CustomiseWorkout> {
                       ),
                     ), const SizedBox(width: 5,),
                     Container(
-                      width: 110,
-                      height: 35,
+                      //width: 110,
+                      height: 27,
+                      padding: const EdgeInsets.only(right: 15),
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),
                           gradient: const LinearGradient(
                               begin: Alignment.bottomCenter,
@@ -301,7 +309,8 @@ class _CustomiseWorkoutState extends State<CustomiseWorkout> {
                     ),
                   ],
                 ),
-              ),const SizedBox(height: 20,),
+              ),
+              //const SizedBox(height: 20,),
               Padding(
                 padding: const EdgeInsets.only(top: 20,left: 15),
                 child: MyWidgets.textView('Equipments', Colors.white, 20, fontWeight: FontWeight.bold),
@@ -311,8 +320,9 @@ class _CustomiseWorkoutState extends State<CustomiseWorkout> {
                 child: Row(
                   children: [
                     Container(
-                      width: 150,
-                      height: 35,
+                      //width: 150,
+                      height: 27,
+                      padding: const EdgeInsets.only(right: 15),
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),
                           gradient: const LinearGradient(
                               begin: Alignment.bottomCenter,
@@ -336,8 +346,9 @@ class _CustomiseWorkoutState extends State<CustomiseWorkout> {
                     ),
                     const SizedBox(width: 5,),
                     Container(
-                      width: 160,
-                      height: 35,
+                      //width: 160,
+                      height: 27,
+                      padding: const EdgeInsets.only(right: 15),
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),
                         gradient: const LinearGradient(
                           begin: Alignment.bottomCenter,

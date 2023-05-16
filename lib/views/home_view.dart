@@ -10,12 +10,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeView extends StatelessWidget {
-  HomeController homeController = Get.put(HomeController());
-
-
+  const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-
+    HomeController homeController = Get.put(HomeController());
   return Scaffold(
     body:
             //GetX initialized
@@ -34,7 +32,7 @@ class HomeView extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
                 child: Image.asset(
-                  'assets/images/loginbg.jpg',
+                  'assets/images/homebg1.png',
                   fit: BoxFit.cover,
                 )
             ),
@@ -43,7 +41,7 @@ class HomeView extends StatelessWidget {
                 Expanded(
                   child: ListView(
                     children: [
-                      HeaderView(0),
+                      const HeaderView(0),
                       Padding(
                         padding:
                             const EdgeInsets.only(top: 5.0, left: 5, right: 5),
@@ -101,7 +99,9 @@ class HomeView extends StatelessWidget {
                                       color: Colors.white12,
                                     ),
                                     margin: const EdgeInsets.all(8),
-                                    child: NewView(controller
+                                    child:
+
+                                    NewView(controller
                                         .videoList[index].link!)),
                               );
                             },
@@ -197,9 +197,9 @@ class HomeView extends StatelessWidget {
                           color: Colors.grey,
                         ),
                       ),
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.start,
-                        children: const [
+                        children: [
                           Padding(
                             padding: EdgeInsets.only(left: 20, top: 10),
                             child: Text(
@@ -218,7 +218,7 @@ class HomeView extends StatelessWidget {
                         children: [
                           InkWell(
                             onTap: (){
-                              HomeController.launchCaller('https://www.facebook.com/tserieshealthandfitness/');
+                              HomeController.launchCaller('https://www.facebook.com/');
                             },
                             child: Padding(
                               padding: const EdgeInsets.symmetric(vertical: 10),

@@ -7,34 +7,35 @@ import 'package:get/get.dart';
 import '../styles/commonmodule/blogs.dart';
 
 class NutritionPage extends StatelessWidget {
-
-  List<String> cats = [
-    'The Basics',
-    'Weight Loss',
-    'Muscle Gain',
-    'Cross Training',
-  ];
-  List<String> heading = [
-    'Add Variety to your healthy diet',
-    'Why Weight Loss is important?',
-    'Every workout for everyone',
-    'Why Cross-Training Is Effective for All?',
-  ];
-  List<String> img = [
-    'assets/images/nutrition.png',
-    'assets/images/nutrition1.png',
-    'assets/images/gym_f.png',
-    'assets/images/gym_h.png',
-  ];
-  List<String> des = [
-    MyBlogs.theBasic,
-    MyBlogs.weightLoss,
-    MyBlogs.muscleGain,
-    MyBlogs.crossTraining,
-  ];
+  const NutritionPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    List<String> cats = [
+      'The Basics',
+      'Weight Loss',
+      'Muscle Gain',
+      'Cross Training',
+    ];
+    List<String> heading = [
+      'Add Variety to your healthy diet',
+      'Why Weight Loss is important?',
+      'Every workout for everyone',
+      'Why Cross-Training Is Effective for All?',
+    ];
+    List<String> img = [
+      'assets/images/nutrition.png',
+      'assets/images/nutrition1.png',
+      'assets/images/gym_f.png',
+      'assets/images/gym_h.png',
+    ];
+    List<String> des = [
+      MyBlogs.theBasic,
+      MyBlogs.weightLoss,
+      MyBlogs.muscleGain,
+      MyBlogs.crossTraining,
+    ];
+
     return Scaffold(
       body: Stack(
         children: [
@@ -48,7 +49,7 @@ class NutritionPage extends StatelessWidget {
           ),
           ListView(
             children: [
-              HeaderView(8),
+              const HeaderView(8),
               Padding(
                 padding: const EdgeInsets.only(top: 5.0, left: 5, right: 5),
                 child: Container(

@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class MyVideoView extends StatefulWidget {
-  String url;
-  String title;
-  String des;
-  String type;
+  final String url;
+  final String title;
+  final String des;
+  final String type;
 
-  MyVideoView(this.url, this.title, this.des, this.type, {Key? key}) : super(key: key);
+  const MyVideoView(this.url, this.title, this.des, this.type, {Key? key}) : super(key: key);
 
   @override
   State<MyVideoView> createState() => _MyVideoViewState();
@@ -55,7 +55,7 @@ class _MyVideoViewState extends State<MyVideoView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 50,),
-              HeaderView(9),
+              const HeaderView(9),
               Padding(
                 padding: const EdgeInsets.only(top: 5),
                 child: Container(

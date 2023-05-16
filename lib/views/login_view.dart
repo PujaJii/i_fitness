@@ -1,4 +1,4 @@
-import 'package:i_fitness/controllers/user_controller.dart';
+import 'package:i_fitness/controllers/log_in_controller.dart';
 import 'package:i_fitness/styles/app_colors.dart';
 import 'package:i_fitness/styles/button_style.dart';
 import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
@@ -8,14 +8,15 @@ import 'package:get/get.dart';
 
 
 class LoginView extends StatefulWidget {
-
+  const LoginView({Key? key}) : super(key: key);
 
   @override
-  _LoginViewState createState() => _LoginViewState();
+  State<LoginView> createState() => _LoginViewState();
 }
 
 class _LoginViewState extends State<LoginView> {
-  UserController userController = Get.put(UserController());
+  // UserController userController = Get.put(UserController());
+  LogInController logInController = Get.put(LogInController());
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -26,18 +27,22 @@ class _LoginViewState extends State<LoginView> {
           Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
-              child: Image.asset('assets/images/spbg1.jpg', fit: BoxFit.cover,)
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/spbg1.jpg'),
+                      fit: BoxFit.cover)),
+              child: Container(color: Colors.black38,)
           ),
           Positioned(
-            top: 100,
-              right: 50,
+            top: 85,
+              right: 30,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Hero(
                       tag: 'logo',
-                      child: Image.asset('assets/images/logo.png', scale: 10)),
-                  const SizedBox(height: 30),
+                      child: Image.asset('assets/images/logo.png', scale: 12)),
+                  const SizedBox(height: 2),
                   MyWidgets.textView('LOGIN', Colors.black, 30, fontWeight: FontWeight.bold),
                     MyWidgets.textView('Here', Colors.black, 20),
                 ],
@@ -49,14 +54,15 @@ class _LoginViewState extends State<LoginView> {
             child: Form(
               key: _formKey,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Container(
                     //padding: Ed,
-                    margin: const EdgeInsets.only(left: 30, right: 30),
+                    margin: const EdgeInsets.symmetric(horizontal: 30),
                     child: TextFormField(
                         keyboardType: TextInputType.emailAddress,
                         textInputAction: TextInputAction.next,
-                        controller: userController.emailTEC,
+                        controller: logInController.email,
                         style: TextStyle(fontSize: 13.5, color: AppColors.white),
                         validator: (input) =>
                         !input!.contains("@") ? "invalid email Format" : null,
@@ -83,14 +89,13 @@ class _LoginViewState extends State<LoginView> {
                         )
                     ),
                   ),
-
                   const SizedBox(height: 15),
                   Container(
-                    margin: const EdgeInsets.only(left: 30, right: 30),
+                    margin: const EdgeInsets.symmetric(horizontal: 30),
                     child: TextFormField(
                         obscureText: true,
-                        controller: userController.passwordTEC,
-                        // keyboardType: TextInputType.datetime,
+                        controller: logInController.password,
+                         keyboardType: TextInputType.number,
                         textInputAction: TextInputAction.next,
                         style: TextStyle(fontSize: 13.5, color: AppColors.white),
                         validator: (input) =>
@@ -118,15 +123,20 @@ class _LoginViewState extends State<LoginView> {
                         )
                     ),
                   ),
+                 Padding(
+                   padding: const EdgeInsets.only(right: 40.0,top: 15),
+                   child: MyWidgets.textView('Forget Password ?', AppColors.offWhite, 12),
+                 ),
                  const SizedBox(height: 20),
-                  ElevatedButton(
-                      style: curveButtonStyleThemeColor,
-                      onPressed: (){
-                        if (_formKey.currentState!.validate()) {
-                          userController.getLogin();
-                        }
-
-                      }, child: MyWidgets.textView("Login", AppColors.white, 14, fontWeight: FontWeight.bold))
+                  Center(
+                    child: ElevatedButton(
+                        style: curveButtonStyleThemeColor,
+                        onPressed: (){
+                          if (_formKey.currentState!.validate()) {
+                            logInController.getLogIn();
+                          }
+                        }, child: MyWidgets.textView("Login", AppColors.white, 14, fontWeight: FontWeight.bold)),
+                  )
                 ],
               ),
             ),

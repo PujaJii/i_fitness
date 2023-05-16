@@ -6,8 +6,8 @@ import '../styles/commonmodule/my_widgets.dart';
 
 
 class PrivacyPage extends StatelessWidget {
-  String header;
-  PrivacyPage(this.header, {super.key});
+  final String header;
+  const PrivacyPage(this.header, {super.key});
 
   @override
   Widget build(BuildContext context) {

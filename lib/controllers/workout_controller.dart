@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import '../apis/cat_api.dart';
 import '../apis/video_api.dart';
 import '../models/cat_model.dart';
-import '../models/vodeo_model.dart';
+import '../models/video_model.dart';
 
 class WorkoutController extends GetxController{
 

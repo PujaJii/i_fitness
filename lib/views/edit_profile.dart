@@ -31,7 +31,7 @@ class _EditProfileState extends State<EditProfile> {
               child: Image.asset('assets/images/loginbg.jpg', fit: BoxFit.cover,)
           ),
           ListView(
-            children:  [
+            children: [
               const SizedBox(height: 100),
                Center(
                  child: Stack(
@@ -61,7 +61,8 @@ class _EditProfileState extends State<EditProfile> {
                      ),
                    ],
                  ),
-               ),const SizedBox(height: 40),
+               ),
+              const SizedBox(height: 40),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 40,vertical: 10),
                 child: TextFormField(

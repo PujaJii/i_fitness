@@ -5,9 +5,9 @@ import 'package:video_player/video_player.dart';
 
 
 class ViewVideo extends StatelessWidget {
-  String videoLink;
+  final String videoLink;
 
-  ViewVideo(this.videoLink, {Key? key}) : super(key: key);
+  const ViewVideo(this.videoLink, {Key? key}) : super(key: key);
 
   // String url = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4';
   @override

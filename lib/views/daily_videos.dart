@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DailyVideos extends StatelessWidget {
-  String img;
-  String title;
-  String heading;
-  String des;
+  final String img;
+  final String title;
+  final String heading;
+  final String des;
 
-  DailyVideos(this.img, this.title, this.heading, this.des, {super.key});
+  const DailyVideos(this.img, this.title, this.heading, this.des, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class DailyVideos extends StatelessWidget {
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 8,),
-              HeaderView(6),
+              const HeaderView(6),
               Padding(
                 padding: const EdgeInsets.only(top: 5.0, left: 5, right: 5),
                 child: Container(

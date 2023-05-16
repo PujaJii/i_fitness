@@ -9,10 +9,10 @@ import 'package:get_storage/get_storage.dart';
 import '../styles/app_colors.dart';
 
 class SplashView extends StatelessWidget {
-  var box = GetStorage();
-
+  const SplashView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    var box = GetStorage();
 //    print('userId`````````````: ${box.read('userId')}');
     Timer(const Duration(seconds: 4), () {
       //Get.offAll(HomeView());
@@ -49,10 +49,10 @@ class SplashView extends StatelessWidget {
                   children: [
                     InkWell(
                         onTap: () {
-                          if(box.read('isLoading') =='true'){
+                          if(box.read('isLoading') == true){
                             Get.offAll(()=>const HomePage());
                           }else{
-                            Get.to(() =>  LoginView());
+                            Get.to(() => const LoginView());
                           }
                         },
                         child: Container(

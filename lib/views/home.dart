@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<Widget> _screens = [
-    HomeView(),
+    const HomeView(),
     const ProgressPage(),
     const WorkOut(),
     const PlansPage(),
@@ -36,9 +36,10 @@ class _HomePageState extends State<HomePage> {
           Align(
               alignment: Alignment.bottomCenter,
               child: BottomNavigationBar(
-                backgroundColor: Colors.black.withOpacity(0.1), //here set your transparent level
+                backgroundColor: Colors.white12, //here set your transparent level
+                //backgroundColor: Colors.black.withOpacity(0.1), //here set your transparent level
                 elevation: 0,
-                selectedItemColor: Colors.purple[700],
+                selectedItemColor: AppColors.themeColor,
                 unselectedItemColor: Colors.white,
                 type: BottomNavigationBarType.fixed,
                 showSelectedLabels: true,
@@ -97,56 +98,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-
-/*
-NavigationBarTheme(
-data: const NavigationBarThemeData(
-indicatorColor: Colors.transparent,
-),
-
-child: NavigationBar(
-elevation: 5,
-labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-onDestinationSelected: (value) {
-setState(() {
-currentIndex = value;
-});
-},
-selectedIndex: currentIndex,
-height: 55,
-backgroundColor: Color(0x00ffffff),
-animationDuration: const Duration(seconds: 2),
-destinations: [
-NavigationDestination(
-icon: const Icon(Icons.home_outlined,),
-selectedIcon: Icon(Icons.home_outlined,
-size: 35,
-color: Colors.purple[600],),
-label: 'Home'),
-NavigationDestination(
-icon: Image.asset('assets/images/trend.png',height: 23,width: 23),
-selectedIcon: Image.asset('assets/images/trend.png',height: 28,width: 28,
-color: Colors.purple[600],),
-label: 'Favorite'),
-NavigationDestination(
-icon: Image.asset('assets/images/workout.png',height: 23,width: 23),
-selectedIcon: Image.asset('assets/images/workout.png',height: 28,width: 28,
-color: AppColors.btnColor,),
-label: 'Location'),
-NavigationDestination(
-icon: const Icon(Icons.chat_outlined),
-selectedIcon: Icon(Icons.chat,
-size: 35,
-color: AppColors.btnColor,),
-label: 'Massages'),
-NavigationDestination(
-icon: const Icon(Icons.chat_outlined),
-selectedIcon: Icon(Icons.chat,
-size: 35,
-color: AppColors.btnColor,),
-label: 'Massages'),
-],
-),
-),
-*/

@@ -5,8 +5,8 @@ import '../../views/notification.dart';
 import '../../views/profile.dart';
 
 class HeaderView extends StatelessWidget {
-  int index;
-  HeaderView(this.index, {Key? key}) : super(key: key);
+  final int index;
+  const HeaderView(this.index, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class HeaderView extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     Get.to(() => ProfilePage(index));
-                    print('a$index');
+                    debugPrint('a$index');
                   },
                   child: Hero(
                     tag: 'a$index',

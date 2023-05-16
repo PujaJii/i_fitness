@@ -38,7 +38,7 @@ class _Register2State extends State<Register2> {
                 fit: BoxFit.cover,
               )),
           Positioned(
-              top: 100,
+              top: 70,
               right: 50,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -46,8 +46,8 @@ class _Register2State extends State<Register2> {
                   Hero(
                       tag: 'regLogo',
                       child : Image.asset('assets/images/logo.png', scale: 9)),
-                  const SizedBox(height: 30),
-                  MyWidgets.textView('Activeness', Colors.white, 30,
+                  const SizedBox(height: 10),
+                  MyWidgets.textView('Activeness', Colors.white, 25,
                       fontWeight: FontWeight.bold),
                   MyWidgets.textView('In Daily Life', Colors.grey, 20),
                 ],
@@ -83,22 +83,26 @@ class _Register2State extends State<Register2> {
                                  begin: Alignment.topCenter,
                                  end: Alignment.bottomCenter,
                                  colors: sampleData[index].isSelected?
-                                 [AppColors.themeColor,
-                                   AppColors.themeColor,] :
-                                 [Colors.purple,
-                                   AppColors.btnColor,]
+                                 [
+                                   const Color(0xff214ed3),
+                                   const Color(0xff214ed3),
+                                 ] :
+                                 [
+                                   const Color(0xc8214ed3),
+                                   const Color(0x49214ed3),
+                                 ]
                              ),
                              borderRadius: BorderRadius.circular(30),
                            ),
                            child: Column(
+                             crossAxisAlignment: CrossAxisAlignment.center,
+                             mainAxisAlignment: MainAxisAlignment.center,
                              children: [
-                               Center(
-                                   child: MyWidgets.textView(sampleData[index].buttonText,
-                                       Colors.white, 17,
-                                       fontWeight: FontWeight.bold)),
-                               Center(
-                                   child: MyWidgets.textView(sampleData[index].text,
-                                       Colors.white, 14)),
+                               MyWidgets.textView(sampleData[index].buttonText,
+                                   Colors.white, 17,
+                                   fontWeight: FontWeight.bold),
+                               MyWidgets.textView(sampleData[index].text,
+                                   Colors.white, 14),
                              ],
                            ),
                          ),
@@ -141,7 +145,7 @@ class _Register2State extends State<Register2> {
                          onTap: () {
                            setState(() {
                              if(changeBtn){
-                               Get.off(() => const HomePage());
+                               Get.offAll(() => const HomePage());
                              }
                            });
                          },

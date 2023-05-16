@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 class MyBlogs {
   static const String theBasic =

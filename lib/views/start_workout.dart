@@ -9,12 +9,10 @@ import 'package:video_player/video_player.dart';
 import '../styles/button_style.dart';
 
 class StartWorkout extends StatefulWidget {
-  String url;
-  String title;
-  String des;
-
-
-  StartWorkout(this.url, this.title, this.des,  {Key? key}) : super(key: key);
+  final String url;
+  final String title;
+  final String des;
+  const StartWorkout(this.url, this.title, this.des,  {Key? key}) : super(key: key);
 
   @override
   State<StartWorkout> createState() => _StartWorkoutState();
@@ -51,7 +49,7 @@ class _StartWorkoutState extends State<StartWorkout> {
     setState(() => myDuration = const Duration(days: 5));
   }
   void setCountDown() {
-    final addSec = 1;
+    const addSec = 1;
     setState(() {
       final seconds = myDuration.inSeconds + addSec;
         myDuration = Duration(seconds: seconds);
@@ -108,7 +106,7 @@ class _StartWorkoutState extends State<StartWorkout> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 50,),
-              HeaderView(9),
+              const HeaderView(9),
               Padding(
                 padding: const EdgeInsets.only(top: 5),
                 child: Container(

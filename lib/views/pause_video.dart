@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPause extends StatefulWidget {
-  String videoLinks;
+  final String videoLinks;
 
-  VideoPause(this.videoLinks, {Key? key}) : super(key: key);
+  const VideoPause(this.videoLinks, {Key? key}) : super(key: key);
 
   @override
   State<VideoPause> createState() => _VideoPauseState();

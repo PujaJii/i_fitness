@@ -3,10 +3,8 @@ import 'package:video_player/video_player.dart';
 
 
 class NewView extends StatefulWidget {
-  String videoLinks;
-
-
-  NewView(this.videoLinks, {Key? key}) : super(key: key);
+  final String videoLinks;
+  const NewView(this.videoLinks, {Key? key}) : super(key: key);
 
   @override
   State<NewView> createState() => _NewViewState();

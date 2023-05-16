@@ -1,10 +1,10 @@
+import 'package:i_fitness/controllers/register_controller.dart';
 import 'package:i_fitness/styles/app_colors.dart';
 import 'package:i_fitness/styles/button_style.dart';
 import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controllers/user_controller.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({Key? key}) : super(key: key);
@@ -14,7 +14,8 @@ class RegisterView extends StatefulWidget {
 }
 
 class _RegisterViewState extends State<RegisterView> {
-  UserController userController = Get.put(UserController());
+ // UserController userController = Get.put(UserController());
+  RegisterController registerController =  Get.put(RegisterController());
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -22,174 +23,183 @@ class _RegisterViewState extends State<RegisterView> {
     return Scaffold(
       body: Stack(
         children: [
-          SizedBox(
+          Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
-              child: Image.asset(
-                'assets/images/spbg2.jpg',
-                fit: BoxFit.cover,
-              )),
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/spbg2.jpg'),
+                      fit: BoxFit.cover)),
+              child: Container(color: Colors.black38,)
+          ),
           Positioned(
               top: 100,
               right: 50,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Image.asset('assets/images/logo.png', scale: 9),
-                  const SizedBox(height: 20),
-                  MyWidgets.textView('CREATE', Colors.white, 30,
+                  Image.asset('assets/images/logo.png', scale: 12),
+                  const SizedBox(height: 10),
+                  MyWidgets.textView('CREATE', Colors.white, 28,
                       fontWeight: FontWeight.bold),
-                  MyWidgets.textView('Account', Colors.white, 20),
+                  MyWidgets.textView('Account', Colors.white, 18),
                 ],
               )),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 100,
+          Center(
             child: Form(
               key: _formKey,
-              child: Column(
-                children: [
-                  Container(
-                    //padding: Ed,
-                    margin: const EdgeInsets.only(left: 30, right: 30),
-                    child: TextFormField(
-                        keyboardType: TextInputType.emailAddress,
-                        textInputAction: TextInputAction.next,
-                        controller: userController.name,
-                        style: TextStyle(fontSize: 13.5, color: AppColors.white),
-                        validator: (input) =>
-                        input!.isEmpty ? "Enter Your Name" : null,
-                        decoration: InputDecoration(
-                          hintStyle: const TextStyle(color: Colors.white70),
-                          fillColor: AppColors.btnColor,
-                          filled: true,
-                          contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 16.0, vertical: 16.0),
-                          hintText: 'Enter Name',
-                          labelText: '   Enter Name',
-                          labelStyle: const TextStyle(
-                              fontSize: 13,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w200,
-                              // light
-                              fontStyle: FontStyle.normal),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(50),
-                              borderSide: BorderSide(
-                                color: AppColors.white,
-                              )),
-                        )),
+              child: Container(
+                margin: const EdgeInsets.only(top: 100),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(left: 30, right: 30),
+                        child: TextFormField(
+                            keyboardType: TextInputType.emailAddress,
+                            textInputAction: TextInputAction.next,
+                            controller: registerController.name,
+                            style: TextStyle(fontSize: 13.5, color: AppColors.white),
+                            validator: (input) =>
+                            input!.isEmpty ? "Enter Your Name" : null,
+                            decoration: InputDecoration(
+                              hintStyle: const TextStyle(color: Colors.white70),
+                              fillColor: AppColors.btnColor,
+                              filled: true,
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 16.0, vertical: 16.0),
+                              hintText: 'Enter Name',
+                              labelText: '   Enter Name',
+                              labelStyle: const TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w200,
+                                  // light
+                                  fontStyle: FontStyle.normal),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                  borderSide: BorderSide(
+                                    color: AppColors.white,
+                                  )),
+                            )),
+                      ),
+                      const SizedBox(height: 10),
+                      Container(
+                        margin: const EdgeInsets.only(left: 30, right: 30),
+                        child: TextFormField(
+                            keyboardType: TextInputType.emailAddress,
+                            textInputAction: TextInputAction.next,
+                            controller: registerController.regEmail,
+                            style: TextStyle(fontSize: 13.5, color: AppColors.white),
+                            validator: (input) =>
+                                !input!.contains("@") ? "invalid email Format" : null,
+                            decoration: InputDecoration(
+                              hintStyle: const TextStyle(color: Colors.white70),
+                              fillColor: AppColors.btnColor,
+                              filled: true,
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 16.0, vertical: 16.0),
+                              hintText: 'Enter email',
+                              labelText: '   Enter email',
+                              labelStyle: const TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w200,
+                                  // light
+                                  fontStyle: FontStyle.normal),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                  borderSide: BorderSide(
+                                    color: AppColors.white,
+                                  )),
+                            )),
+                      ),
+                      const SizedBox(height: 10),
+                      Container(
+                        //padding: Ed,
+                        margin: const EdgeInsets.only(left: 30, right: 30),
+                        child: TextFormField(
+                            obscureText: true,
+                            keyboardType: TextInputType.number,
+                            controller: registerController.regPassword,
+                            textInputAction: TextInputAction.next,
+                            style: TextStyle(fontSize: 13.5, color: AppColors.white),
+                            validator: (input) =>
+                                input!.isEmpty ? "Enter password" : null,
+                            decoration: InputDecoration(
+                              hintStyle: const TextStyle(color: Colors.white70),
+                              fillColor: AppColors.btnColor,
+                              filled: true,
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 16.0, vertical: 16.0),
+                              hintText: 'Enter password',
+                              labelText: '   Enter password',
+                              labelStyle: const TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w200,
+                                  // light
+                                  fontStyle: FontStyle.normal),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                  borderSide: BorderSide(
+                                    color: AppColors.white,
+                                  )),
+                            )),
+                      ),
+                      const SizedBox(height: 10),
+                      Container(
+                        //padding: Ed,
+                        margin: const EdgeInsets.only(left: 30, right: 30),
+                        child: TextFormField(
+                            obscureText: true,
+                            keyboardType: TextInputType.number,
+                            controller: registerController.regRePassword,
+                            textInputAction: TextInputAction.done,
+                            style: TextStyle(fontSize: 13.5, color: AppColors.white),
+                            validator: (input) =>
+                            input!.isEmpty ?
+                            "Enter confirm password" :
+                            input != registerController.regPassword.text ?
+                            'Password must be same':
+                            null,
+                            decoration: InputDecoration(
+                              hintStyle: const TextStyle(color: Colors.white70),
+                              fillColor: AppColors.btnColor,
+                              filled: true,
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 16.0, vertical: 16.0),
+                              hintText: 'Enter confirm password',
+                              labelText: '   Enter confirm password',
+                              labelStyle: const TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w200,
+                                  // light
+                                  fontStyle: FontStyle.normal),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                  borderSide: BorderSide(
+                                    color: AppColors.white,
+                                  )),
+                            )),
+                      ),
+                      const SizedBox(height: 20),
+                      ElevatedButton(
+                          style: curveButtonStyleThemeColor,
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                                registerController.getRegistered();
+                            }
+                          },
+                          child: MyWidgets.textView("Register  ", AppColors.white, 14,
+                              fontWeight: FontWeight.bold)),
+                      const SizedBox(height: 30),
+                    ],
                   ),
-                  const SizedBox(height: 10),
-                  Container(
-                    //padding: Ed,
-                    margin: const EdgeInsets.only(left: 30, right: 30),
-                    child: TextFormField(
-                        keyboardType: TextInputType.emailAddress,
-                        textInputAction: TextInputAction.next,
-                        controller: userController.regEmail,
-                        style: TextStyle(fontSize: 13.5, color: AppColors.white),
-                        validator: (input) =>
-                            !input!.contains("@") ? "invalid email Format" : null,
-                        decoration: InputDecoration(
-                          hintStyle: const TextStyle(color: Colors.white70),
-                          fillColor: AppColors.btnColor,
-                          filled: true,
-                          contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 16.0, vertical: 16.0),
-                          hintText: 'Enter email',
-                          labelText: '   Enter email',
-                          labelStyle: const TextStyle(
-                              fontSize: 13,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w200,
-                              // light
-                              fontStyle: FontStyle.normal),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(50),
-                              borderSide: BorderSide(
-                                color: AppColors.white,
-                              )),
-                        )),
-                  ),
-                  const SizedBox(height: 10),
-                  Container(
-                    //padding: Ed,
-                    margin: const EdgeInsets.only(left: 30, right: 30),
-                    child: TextFormField(
-                        obscureText: true,
-                        controller: userController.regPassword,
-                        textInputAction: TextInputAction.next,
-                        style: TextStyle(fontSize: 13.5, color: AppColors.white),
-                        validator: (input) =>
-                            input!.isEmpty ? "Enter password" : null,
-                        decoration: InputDecoration(
-                          hintStyle: const TextStyle(color: Colors.white70),
-                          fillColor: AppColors.btnColor,
-                          filled: true,
-                          contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 16.0, vertical: 16.0),
-                          hintText: 'Enter password',
-                          labelText: '   Enter password',
-                          labelStyle: const TextStyle(
-                              fontSize: 13,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w200,
-                              // light
-                              fontStyle: FontStyle.normal),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(50),
-                              borderSide: BorderSide(
-                                color: AppColors.white,
-                              )),
-                        )),
-                  ),
-                  const SizedBox(height: 10),
-                  Container(
-                    //padding: Ed,
-                    margin: const EdgeInsets.only(left: 30, right: 30),
-                    child: TextFormField(
-                        obscureText: true,
-                        controller: userController.regRepassword,
-                        textInputAction: TextInputAction.done,
-                        style: TextStyle(fontSize: 13.5, color: AppColors.white),
-                        validator: (input) =>
-                        input!.isEmpty ? "Enter confirm password" : null,
-                        decoration: InputDecoration(
-                          hintStyle: const TextStyle(color: Colors.white70),
-                          fillColor: AppColors.btnColor,
-                          filled: true,
-                          contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 16.0, vertical: 16.0),
-                          hintText: 'Enter confirm password',
-                          labelText: '   Enter confirm password',
-                          labelStyle: const TextStyle(
-                              fontSize: 13,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w200,
-                              // light
-                              fontStyle: FontStyle.normal),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(50),
-                              borderSide: BorderSide(
-                                color: AppColors.white,
-                              )),
-                        )),
-                  ),
-                  const SizedBox(height: 20),
-                  ElevatedButton(
-                      style: curveButtonStyleThemeColor,
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          if(userController.regPassword.text == userController.regRepassword.text){
-                            userController.getSignUp();
-                          }
-                        }
-                      },
-                      child: MyWidgets.textView("Register  ", AppColors.white, 14,
-                          fontWeight: FontWeight.bold))
-                ],
+                ),
               ),
             ),
           ),

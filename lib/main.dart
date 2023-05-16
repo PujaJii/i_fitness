@@ -18,14 +18,16 @@ Future<void> main() async {
    await GlobalConfiguration().loadFromAsset("config");
   // await GetStorage.init();
   // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 
 class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
 
   @override
-  _MyAppState createState() => _MyAppState();
+  State<MyApp> createState() => _MyAppState();
 }
 
 
@@ -40,6 +42,6 @@ class _MyAppState extends State<MyApp> {
           fontFamily: 'Mulish-Medium',
           primarySwatch: Colors.red,
         ),
-        home: SplashView());
+        home: const SplashView());
   }
 }

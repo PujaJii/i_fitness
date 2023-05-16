@@ -7,7 +7,7 @@ class MySnackbar {
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.red,
         colorText: Colors.white,
-        margin: EdgeInsets.all(6.0)
+        margin: const EdgeInsets.all(6.0)
     );
   }
 
@@ -16,7 +16,7 @@ class MySnackbar {
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.green,
         colorText: Colors.white,
-        margin: EdgeInsets.all(6.0)
+        margin: const EdgeInsets.all(6.0)
     );
   }
   static void transparentSnakbar(String title, String message) {
@@ -24,8 +24,8 @@ class MySnackbar {
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.white38,
         colorText: Colors.black,
-        margin: EdgeInsets.all(6.0),
-        duration: Duration(seconds: 1)
+        margin: const EdgeInsets.all(6.0),
+        duration: const Duration(seconds: 1)
     );
   }
   static void infoSnackBar(String title, String message) {
@@ -33,7 +33,7 @@ class MySnackbar {
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.blue,
         colorText: Colors.white,
-        margin: EdgeInsets.all(6.0)
+        margin: const EdgeInsets.all(6.0)
     );
   }
   static void transparentSnackbar(String title, String message) {
@@ -41,8 +41,8 @@ class MySnackbar {
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.white38,
         colorText: Colors.black,
-        margin: EdgeInsets.all(6.0),
-      duration: Duration(seconds: 1)
+        margin: const EdgeInsets.all(6.0),
+      duration: const Duration(seconds: 1)
     );
   }
 
@@ -51,8 +51,8 @@ class MySnackbar {
         snackPosition: SnackPosition.TOP,
         backgroundColor: Colors.white,
         colorText: Colors.black,
-        margin: EdgeInsets.all(6.0),
-        duration: Duration(seconds: 3)
+        margin: const EdgeInsets.all(6.0),
+        duration: const Duration(seconds: 3)
     );
   }
 }

@@ -29,7 +29,7 @@ class WorkOut extends StatelessWidget {
         if (controller.isLoading.value) {
           return Center(child: CircularProgressIndicator(color: AppColors.btnColor2,));
         } else {
-          print('Data fetched');
+          debugPrint('Data fetched');
           return
           Stack(
             children: [
@@ -43,7 +43,7 @@ class WorkOut extends StatelessWidget {
                   Expanded(
                     child: ListView(
                       children: [
-                        HeaderView(2),
+                        const HeaderView(2),
                         Padding(
                           padding: const EdgeInsets.only(top: 5.0,left: 5,right: 5),
                           child: Container(
@@ -54,7 +54,7 @@ class WorkOut extends StatelessWidget {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children:  [
+                          children: [
                             Padding(
                               padding: const EdgeInsets.only(left: 20, top: 10),
                               child: MyWidgets.textView('Good Morning', Colors.white, 17),
@@ -69,10 +69,11 @@ class WorkOut extends StatelessWidget {
                               child: MyWidgets.textView('Is this time for your workout ?', Colors.white, 14),
                             ),
                           ],
-                        ),const SizedBox(height: 10,),
+                        ),
+                        const SizedBox(height: 10,),
                         InkWell(
                           onTap: () {
-                            Get.to(() => FoxtrotPage());
+                            Get.to(() => const FoxtrotPage());
                           },
                           child: Container(
                             margin: const EdgeInsets.symmetric(horizontal: 20),

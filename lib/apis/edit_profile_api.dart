@@ -1,5 +1,3 @@
-
-import 'package:global_configuration/global_configuration.dart';
 import 'package:http/http.dart' as http;
 
 import '../models/edit_profile_model.dart';
@@ -14,9 +12,9 @@ class EditProfileApi{
       String number,
       String currentPassword,
       String newPassword) async {
-    var baseUrl = GlobalConfiguration().get('base_url');
+    //var baseUrl = GlobalConfiguration().get('base_url');
 
-    var response = await client.post(Uri.parse('${baseUrl}register'), body: {
+    var response = await client.post(Uri.parse('https://iwebnext.us/fitness/public/api/register'), body: {
       'name': name,
       'email':email,
       'number':number,

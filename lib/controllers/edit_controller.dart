@@ -29,7 +29,7 @@ class EditProfileController extends GetxController{
 
       if(api_response.response=='ok'){
 
-        Get.offAll(() => ProfilePage(1542));
+        Get.offAll(() => const ProfilePage(1542));
         MySnackbar.successSnackBar('Register Success', 'Welcome');
       }
       // else if(api_response.response=='user exist'){

@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class MyVideoPlayer extends StatefulWidget {
-  String videoLinks;
-  String title;
-  String duration;
+  final String videoLinks;
+  final String title;
+  final String duration;
 
-  MyVideoPlayer(this.videoLinks, this.title, this.duration, {Key? key}) : super(key: key);
+  const MyVideoPlayer(this.videoLinks, this.title, this.duration, {Key? key}) : super(key: key);
 
   @override
   State<MyVideoPlayer> createState() => _MyVideoPlayerState();

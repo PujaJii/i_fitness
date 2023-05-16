@@ -36,7 +36,7 @@ class _ProgressPageState extends State<ProgressPage> {
               Expanded(
                 child: ListView(
                   children: [
-                     HeaderView(1),
+                     const HeaderView(1),
                     Padding(
                       padding: const EdgeInsets.only(top: 5.0, left: 5, right: 5),
                       child: Container(
@@ -401,7 +401,7 @@ class _ProgressPageState extends State<ProgressPage> {
                         ),
                         InkWell(
                           onTap: () {
-                            Get.to(()=> NutritionPage());
+                            Get.to(()=> const NutritionPage());
                           },
                           child: Container(
                             height: 35,
