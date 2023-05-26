@@ -3,6 +3,7 @@ import 'package:i_fitness/styles/commonmodule/header.dart';
 import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class MyVideoView extends StatefulWidget {
   final String url;
@@ -20,9 +21,17 @@ class _MyVideoViewState extends State<MyVideoView> {
 
   late VideoPlayerController _controller;
   late Future<void> _initializeVideoPlayerFuture;
+  late YoutubePlayerController _controllerYoutube;
 
   @override
   void initState() {
+    _controllerYoutube = YoutubePlayerController(
+      initialVideoId: YoutubePlayer.convertUrlToId(widget.url)!,
+      flags: YoutubePlayerFlags(
+        autoPlay: true,
+        mute: false,
+      ),
+    );
     _controller = VideoPlayerController.network(widget.url);
     _initializeVideoPlayerFuture = _controller.initialize();
     _controller.play();
@@ -71,7 +80,7 @@ class _MyVideoViewState extends State<MyVideoView> {
               ),
               const SizedBox(height: 10,),
               widget.type == 'video'?
-               FutureBuilder(
+              FutureBuilder(
                 future: _initializeVideoPlayerFuture,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.done) {
@@ -101,11 +110,16 @@ class _MyVideoViewState extends State<MyVideoView> {
                                 bottom: 5,
                                 left: 0,
                                 right: 0,
-                                child: VideoProgressIndicator(_controller,
-                                  colors: VideoProgressColors(playedColor: AppColors.themeColorTwo),
-                                  allowScrubbing: true,
-                                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                                child:
+                                YoutubePlayer(
+                                  controller: _controllerYoutube,
+                                  showVideoProgressIndicator: true,
                                 ),
+                                // VideoProgressIndicator(_controller,
+                                //   colors: VideoProgressColors(playedColor: AppColors.themeColorTwo),
+                                //   allowScrubbing: true,
+                                //   padding: const EdgeInsets.symmetric(horizontal: 5),
+                                // ),
                               ),
                             ],
                           )
@@ -132,7 +146,7 @@ class _MyVideoViewState extends State<MyVideoView> {
                 child: MyWidgets.textView(widget.title, Colors.white, 18,fontWeight: FontWeight.bold),
               ),const SizedBox(height: 10,),
               Padding(
-                padding: const EdgeInsets.all( 8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: MyWidgets.textView(widget.des,
                     Colors.white, 12),
               )

@@ -1,16 +1,16 @@
+import 'package:i_fitness/controllers/home_content_controller.dart';
 import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
 import 'package:i_fitness/views/my_video_view.dart';
 import 'package:i_fitness/views/new_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../controllers/home_controller.dart';
 
 
 class SeeMoreVideo extends StatelessWidget {
   SeeMoreVideo({Key? key}) : super(key: key);
 
-  final homeController = Get.find<HomeController>();
+  final homeController = Get.find<HomeContentController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,10 +44,10 @@ class SeeMoreVideo extends StatelessWidget {
                       return InkWell(
                         onTap: () {
                           Get.to(() =>  MyVideoView(
-                            homeController.videoList[index].link!,
+                            homeController.videoList[index].videoUrl!,
                             homeController.videoList[index].title!,
                             homeController.videoList[index].description!,
-                            homeController.videoList[index].type!,
+                            'video',
                           ));
                         },
                         child: Container(
@@ -59,7 +59,7 @@ class SeeMoreVideo extends StatelessWidget {
                             color: Colors.white,
                           ),
                             child: NewView(
-                                homeController.videoList[index].link!)
+                                homeController.videoList[index].videoUrl!)
                         ),
                       );
                     },

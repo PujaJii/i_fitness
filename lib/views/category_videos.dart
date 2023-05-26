@@ -114,7 +114,8 @@ class CategoryVideos extends StatelessWidget {
                         ),
                         MyWidgets.textView('   Estimated time : ', Colors.white, 14)
                       ],
-                    ),const SizedBox(height: 15,),
+                    ),
+                    const SizedBox(height: 15,),
                     Row(
                       children: [
                         const SizedBox(width: 15,),
@@ -125,7 +126,8 @@ class CategoryVideos extends StatelessWidget {
                         ),
                         MyWidgets.textView('    Intermediate', Colors.white, 14)
                       ],
-                    ),const SizedBox(height: 15,),
+                    ),
+                    const SizedBox(height: 15,),
                     Row(
                       children: [
                         const SizedBox(width: 15,),
@@ -136,7 +138,8 @@ class CategoryVideos extends StatelessWidget {
                         ),
                         MyWidgets.textView('   Abs & core, Legs, upper body', Colors.white, 14)
                       ],
-                    ),const SizedBox(height: 15,),
+                    ),
+                    const SizedBox(height: 15,),
                     Padding(
                       padding: const EdgeInsets.only(top: 5.0, left: 5, right: 5),
                       child: Container(

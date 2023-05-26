@@ -1,7 +1,11 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:i_fitness/controllers/edit_controller.dart';
+import 'package:i_fitness/views/change_password.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../styles/app_colors.dart';
@@ -19,6 +23,15 @@ class EditProfile extends StatefulWidget {
 class _EditProfileState extends State<EditProfile> {
 
   final box = GetStorage();
+  EditProfileController controller = Get.put(EditProfileController());
+
+
+  @override
+  void initState() {
+    controller.name.text =  box.read('name');
+    controller.number.text =  box.read('number');
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,14 +46,20 @@ class _EditProfileState extends State<EditProfile> {
           ListView(
             children: [
               const SizedBox(height: 100),
-               Center(
+              Center(
                  child: Stack(
                    children: [
+                     box.read('profile_pic').toString() != ''?
+                     CircleAvatar(
+                         radius: 40,
+                         backgroundColor: Colors.white54,
+                         backgroundImage: NetworkImage(box.read('profile_pic').toString())):
                      profileImage == null?
                      const CircleAvatar(
                       radius: 40,
                       backgroundColor: Colors.white,
                       backgroundImage: AssetImage('assets/images/profile_img.png')):
+
                       CircleAvatar(
                          radius: 40,
                          backgroundImage: FileImage(profileImage)),
@@ -67,7 +86,7 @@ class _EditProfileState extends State<EditProfile> {
                 margin: const EdgeInsets.symmetric(horizontal: 40,vertical: 10),
                 child: TextFormField(
                     keyboardType: TextInputType.name,
-                    initialValue:  box.read('name'),
+                    controller: controller.name,
                     textInputAction: TextInputAction.next,
                     style: TextStyle(fontSize: 13.5, color: AppColors.white),
                     // validator: (input) =>
@@ -97,8 +116,8 @@ class _EditProfileState extends State<EditProfile> {
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 40,vertical: 10),
                 child: TextFormField(
-                    keyboardType: TextInputType.emailAddress,
                     initialValue:  box.read('email'),
+                    readOnly: true,
                     textInputAction: TextInputAction.next,
                     style: TextStyle(fontSize: 13.5, color: AppColors.white),
                     // validator: (input) =>
@@ -128,6 +147,7 @@ class _EditProfileState extends State<EditProfile> {
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 40,vertical: 10),
                 child: TextFormField(
+                    controller: controller.number,
                     keyboardType: TextInputType.number,
                     textInputAction: TextInputAction.next,
                     style: TextStyle(fontSize: 13.5, color: AppColors.white),
@@ -155,62 +175,33 @@ class _EditProfileState extends State<EditProfile> {
                     )
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 40,vertical: 10),
-                child: TextFormField(
-                    textInputAction: TextInputAction.next,
-                    style: TextStyle(fontSize: 13.5, color: AppColors.white),
-                    // validator: (input) =>
-                    // input!.isEmpty ? "Enter Your Name" : null,
-                    decoration: InputDecoration(
-                      hintStyle: const TextStyle(color: Colors.white70),
-                      fillColor: AppColors.btnColor,
-                      filled: true,
-                      contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 16.0, vertical: 16.0),
-                      hintText: 'Enter Current Password',
-                      labelText: '   Current Password',
-                      labelStyle: const TextStyle(
-                          fontSize: 13,
+              InkWell(
+                onTap: () {
+                  Get.to(()=> const ChangePasswordPage());
+                },
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 40,vertical: 10),
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: AppColors.btnColor,
+                    borderRadius: BorderRadius.circular(20),),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      MyWidgets.textView('      Change Password', Colors.white, 14),
+                      const SizedBox(width: 15,),
+                      Container(
+                        height: 20,
+                        width: 20,
+                        margin: EdgeInsets.only(right: 15),
+                        decoration: BoxDecoration(
                           color: Colors.white,
-                          fontWeight: FontWeight.w200,
-                          fontStyle: FontStyle.normal),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: BorderSide(
-                            color: AppColors.white,
-                          )
-                      ),
-                    )
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 40,vertical: 10),
-                child: TextFormField(
-                    textInputAction: TextInputAction.done,
-                    style: TextStyle(fontSize: 13.5, color: AppColors.white),
-                    // validator: (input) =>
-                    // input!.isEmpty ? "Enter Your Name" : null,
-                    decoration: InputDecoration(
-                      hintStyle: const TextStyle(color: Colors.white70),
-                      fillColor: AppColors.btnColor,
-                      filled: true,
-                      contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 16.0, vertical: 16.0),
-                      hintText: 'Enter New Password',
-                      labelText: '   New Password',
-                      labelStyle: const TextStyle(
-                          fontSize: 13,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w200,
-                          fontStyle: FontStyle.normal),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: BorderSide(
-                            color: AppColors.white,
-                          )
-                      ),
-                    )
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: const Icon(Icons.arrow_forward_ios,size: 15),
+                      )
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
@@ -219,6 +210,7 @@ class _EditProfileState extends State<EditProfile> {
                 child: ElevatedButton(
                     style: curveButtonStyleThemeColor,
                     onPressed: () {
+                      controller.editDetails(myBase64);
                     },
                     child: MyWidgets.textView("Submit", AppColors.white, 14,
                         fontWeight: FontWeight.bold)),
@@ -231,19 +223,26 @@ class _EditProfileState extends State<EditProfile> {
   }
 
   var profileImage;
+  String myBase64 = '';
 
   ImagePicker picker = ImagePicker();
 
   _getProfileImage() async {
     XFile? pickedFile = await ImagePicker().pickImage(
       source: ImageSource.gallery,
-      maxWidth: 180,
-      maxHeight: 180,
     );
     if (pickedFile != null) {
       setState(() {
         profileImage = File(pickedFile.path);
       });
+      myBase64 = await convertImageToBase64(profileImage);
+      print(myBase64);
     }
   }
+  Future<String> convertImageToBase64(File imageFile) async {
+    List<int> imageBytes = await imageFile.readAsBytes();
+    String base64Image = base64Encode(imageBytes);
+    return base64Image;
+  }
+
 }

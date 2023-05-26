@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
         title: 'Megatron',
         theme: ThemeData(
           fontFamily: 'Mulish-Medium',
-          primarySwatch: Colors.red,
+          primarySwatch: Colors.blue,
         ),
         home: const SplashView());
   }

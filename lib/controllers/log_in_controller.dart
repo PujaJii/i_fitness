@@ -29,6 +29,7 @@ class LogInController extends GetxController{
         loginList.assignAll(api_response.data!);
         box.write('id', loginList[0].id);
         box.write('name', loginList[0].name);
+        box.write('number', loginList[0].phoneNo);
         box.write('email', email.text);
         box.write('token', api_response.token);
         //print( api_response.token);

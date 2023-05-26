@@ -1,4 +1,4 @@
-import 'package:i_fitness/controllers/home_controller.dart';
+import 'package:i_fitness/controllers/home_content_controller.dart';
 import 'package:i_fitness/styles/app_colors.dart';
 import 'package:i_fitness/styles/commonmodule/header.dart';
 import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
@@ -13,14 +13,13 @@ class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    HomeController homeController = Get.put(HomeController());
+    // HomeController homeController = Get.put(HomeController());
+     HomeContentController homeContentController = Get.put(HomeContentController());
   return Scaffold(
     body:
-            //GetX initialized
-    GetX<HomeController>(
+    GetX<HomeContentController>(
         initState: (context) {
-      homeController.getHomeVideo('video');
-      homeController.getHomeImg('img');
+      homeContentController.getHomeContent();
       }, builder: (controller) {
       if (controller.isLoading.value) {
         return Center(child: CircularProgressIndicator(color: AppColors.btnColor2,));
@@ -84,12 +83,12 @@ class HomeView extends StatelessWidget {
                               return InkWell(
                                 onTap: () {
                                   Get.to(() =>  MyVideoView(
-                                    controller.videoList[index].link!,
+                                    controller.videoList[index].videoUrl!,
                                     controller.videoList[index].title!,
                                     controller.videoList[index].description!,
-                                    controller.videoList[index].type!,
+                                    'video'
                                   )
-                                  );
+                                 );
                                 },
                                 child: Container(
                                     width: 240,
@@ -102,7 +101,7 @@ class HomeView extends StatelessWidget {
                                     child:
 
                                     NewView(controller
-                                        .videoList[index].link!)),
+                                        .videoList[index].videoUrl!)),
                               );
                             },
                           )
@@ -128,7 +127,8 @@ class HomeView extends StatelessWidget {
                                   'See more',
                                   style: TextStyle(
                                       fontSize: 15, color: Colors.white),
-                                )),
+                                )
+                            ),
                           ),
                         ],
                       ),
@@ -137,7 +137,7 @@ class HomeView extends StatelessWidget {
                         height: 190,
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
-                          itemCount: controller.imgList.length,
+                          itemCount: controller.bolgList.length,
                           itemBuilder: (context, index) {
                             return Padding(
                               padding: const EdgeInsets.symmetric(
@@ -145,10 +145,10 @@ class HomeView extends StatelessWidget {
                               child: InkWell(
                                 onTap: () {
                                   Get.to(() =>  MyVideoView(
-                                    controller.imgList[index].link!,
-                                    controller.imgList[index].title!,
-                                    controller.imgList[index].description!,
-                                    controller.imgList[index].type!,
+                                    controller.bolgList[index].imgUrl!,
+                                    controller.bolgList[index].title!,
+                                    controller.bolgList[index].description!,
+                                    'img'
                                   ));
                                 },
                                 child: Container(
@@ -159,7 +159,7 @@ class HomeView extends StatelessWidget {
                                       color: Colors.white12,
                                       image: DecorationImage(
                                           fit: BoxFit.cover,
-                                          image: NetworkImage(controller.imgList[index].link!))
+                                          image: NetworkImage(controller.bolgList[index].imgUrl!))
                                   ),
                                   margin: const EdgeInsets.all(8),
                                   padding: const EdgeInsets.only(left: 10,top: 110),
@@ -173,11 +173,11 @@ class HomeView extends StatelessWidget {
                                           color: Colors.black54
                                         ),
                                         child: Center(
-                                            child: MyWidgets.textView(controller.imgList[index].title!,
+                                            child: MyWidgets.textView(controller.bolgList[index].title!,
                                                 Colors.white,11)
                                         ),
                                       ),
-                                      MyWidgets.textView(controller.imgList[index].subTitle!, Colors.white , 14),
+                                      MyWidgets.textView(controller.bolgList[index].title!, Colors.white , 14),
                                     ],
                                   ),
                                 ),
@@ -217,8 +217,8 @@ class HomeView extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           InkWell(
-                            onTap: (){
-                              HomeController.launchCaller('https://www.facebook.com/');
+                            onTap: () {
+                              HomeContentController.launchCaller('https://www.facebook.com/');
                             },
                             child: Padding(
                               padding: const EdgeInsets.symmetric(vertical: 10),
@@ -265,7 +265,7 @@ class HomeView extends StatelessWidget {
                               ),
                               child: InkWell(
                                 onTap: () {
-                                  HomeController.share('https://play.google.com/store/apps/details?id=com.news.sankhep');
+                                  HomeContentController.share('https://play.google.com/store/apps/details?id=com.news.sankhep');
                                 },
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
