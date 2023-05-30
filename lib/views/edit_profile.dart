@@ -24,6 +24,7 @@ class _EditProfileState extends State<EditProfile> {
 
   final box = GetStorage();
   EditProfileController controller = Get.put(EditProfileController());
+  bool isSelecting = false;
 
 
   @override
@@ -49,7 +50,7 @@ class _EditProfileState extends State<EditProfile> {
               Center(
                  child: Stack(
                    children: [
-                     box.read('profile_pic').toString() != ''?
+                     box.read('profile_pic').toString() != ''&& isSelecting == false?
                      CircleAvatar(
                          radius: 40,
                          backgroundColor: Colors.white54,
@@ -59,7 +60,6 @@ class _EditProfileState extends State<EditProfile> {
                       radius: 40,
                       backgroundColor: Colors.white,
                       backgroundImage: AssetImage('assets/images/profile_img.png')):
-
                       CircleAvatar(
                          radius: 40,
                          backgroundImage: FileImage(profileImage)),
@@ -109,7 +109,8 @@ class _EditProfileState extends State<EditProfile> {
                           borderRadius: BorderRadius.circular(20),
                           borderSide: BorderSide(
                             color: AppColors.white,
-                          )),
+                          )
+                      ),
                     )
                 ),
               ),
@@ -228,6 +229,7 @@ class _EditProfileState extends State<EditProfile> {
   ImagePicker picker = ImagePicker();
 
   _getProfileImage() async {
+    isSelecting = true;
     XFile? pickedFile = await ImagePicker().pickImage(
       source: ImageSource.gallery,
     );
@@ -237,6 +239,7 @@ class _EditProfileState extends State<EditProfile> {
       });
       myBase64 = await convertImageToBase64(profileImage);
       print(myBase64);
+
     }
   }
   Future<String> convertImageToBase64(File imageFile) async {

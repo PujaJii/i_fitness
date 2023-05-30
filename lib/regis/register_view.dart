@@ -94,7 +94,7 @@ class _RegisterViewState extends State<RegisterView> {
                             controller: registerController.regEmail,
                             style: TextStyle(fontSize: 13.5, color: AppColors.white),
                             validator: (input) =>
-                                !input!.contains("@") ? "invalid email Format" : null,
+                                !input!.contains('@') ? 'invalid email Format' : null,
                             decoration: InputDecoration(
                               hintStyle: const TextStyle(color: Colors.white70),
                               fillColor: AppColors.btnColor,

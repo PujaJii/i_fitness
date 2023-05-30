@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 import '../../views/notification.dart';
 import '../../views/profile.dart';
@@ -10,6 +11,7 @@ class HeaderView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final box = GetStorage();
     return
         Padding(
         padding: const EdgeInsets.only(top: 5),
@@ -36,7 +38,13 @@ class HeaderView extends StatelessWidget {
                   },
                   child: Hero(
                     tag: 'a$index',
-                    child: const CircleAvatar(
+                    child:
+                    box.read('profile_pic').toString() != ''?
+                    CircleAvatar(
+                      radius: 13,
+                      backgroundColor: Colors.white,
+                      backgroundImage: NetworkImage(box.read('profile_pic').toString()),):
+                    const CircleAvatar(
                       radius: 13,
                       backgroundColor: Colors.white,
                       backgroundImage: AssetImage('assets/images/profile_img.png'),),

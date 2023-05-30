@@ -13,12 +13,16 @@ class LogInModel {
   String? msg;
   List<UserInfo>? data;
   String? token;
+  String? isSubscribe;
+  String? previousStatus;
 
   LogInModel({
     this.status,
     this.msg,
     this.data,
     this.token,
+    this.isSubscribe,
+    this.previousStatus,
   });
 
   factory LogInModel.fromJson(Map<String, dynamic> json) => LogInModel(
@@ -26,6 +30,8 @@ class LogInModel {
     msg: json["msg"],
     data: json["data"] == null ? [] : List<UserInfo>.from(json["data"]!.map((x) => UserInfo.fromJson(x))),
     token: json["Token"],
+    isSubscribe: json["IsSubscribe"],
+    previousStatus: json["Previous_Status"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -33,6 +39,8 @@ class LogInModel {
     "msg": msg,
     "data": data == null ? [] : List<dynamic>.from(data!.map((x) => x.toJson())),
     "Token": token,
+    "IsSubscribe": isSubscribe,
+    "Previous_Status": previousStatus,
   };
 }
 
@@ -41,9 +49,9 @@ class UserInfo {
   String? name;
   String? emailId;
   String? password;
-  dynamic phoneNo;
-  dynamic profilePicture;
-  dynamic coverPicture;
+  String? phoneNo;
+  String? profilePicture;
+  String? coverPicture;
   String? userType;
   bool? isActive;
 

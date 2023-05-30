@@ -1,5 +1,5 @@
 import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
-import 'package:i_fitness/views/my_video_view.dart';
+import 'package:i_fitness/video_controllers/my_video_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

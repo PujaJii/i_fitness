@@ -32,19 +32,25 @@ class LogInController extends GetxController{
         box.write('number', loginList[0].phoneNo);
         box.write('email', email.text);
         box.write('token', api_response.token);
-        //print( api_response.token);
         box.write('isLoading', true);
+        // print('userdata------------${api_response.isSubscribe}');
+        // print('userdata------------${api_response.previousStatus}');
         Get.offAll(() => const HomePage());
 
+        print(loginList);
+
         MySnackbar.successSnackBar('Welcome','Log in successful');
-      }else if(api_response.status=='failed'){
+      }
+      else if(api_response.status=='failed'){
         Get.back();
         MySnackbar.infoSnackBar('Failed','Log in failed');
-      }else{
+      }
+      else{
         Get.back();
         MySnackbar.errorSnackBar('Internal Server Down', 'Log in failed');
       }
-    }else{
+    }
+    else{
       Get.back();
       MySnackbar.errorSnackBar('Server Down', 'Please try again later');
     }

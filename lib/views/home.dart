@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:i_fitness/styles/app_colors.dart';
 import 'package:i_fitness/views/home_view.dart';
 import 'package:i_fitness/views/plans_page.dart';
@@ -23,6 +24,14 @@ class _HomePageState extends State<HomePage> {
   ];
 
   int currentIndex = 0;
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.portraitUp,
+    ]);
+  }
 
   @override
   Widget build(BuildContext context) {

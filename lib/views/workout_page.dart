@@ -1,7 +1,7 @@
 import 'package:i_fitness/controllers/workout_controller.dart';
 import 'package:i_fitness/views/category_videos.dart';
 import 'package:i_fitness/views/foxtrot.dart';
-import 'package:i_fitness/views/my_videoplayer.dart';
+import 'package:i_fitness/video_controllers/my_videoplayer.dart';
 import 'package:i_fitness/views/pause_video.dart';
 import 'package:i_fitness/views/start_workout.dart';
 import 'package:flutter/material.dart';

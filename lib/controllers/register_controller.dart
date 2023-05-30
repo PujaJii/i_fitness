@@ -4,7 +4,7 @@ import 'package:get_storage/get_storage.dart';
 import '../apis/regiter_api.dart';
 import '../styles/commonmodule/my_alert_dilog.dart';
 import '../styles/commonmodule/my_snack_bar.dart';
-import '../views/register1.dart';
+import '../regis/register1.dart';
 
 
 class RegisterController extends GetxController{

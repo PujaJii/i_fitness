@@ -5,7 +5,7 @@ import 'package:i_fitness/controllers/fetch_profile_controller.dart';
 import 'package:i_fitness/styles/app_colors.dart';
 import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
 import 'package:i_fitness/views/edit_profile.dart';
-import 'package:i_fitness/views/login_view.dart';
+import 'package:i_fitness/regis/login_view.dart';
 import 'package:i_fitness/views/notification.dart';
 import 'package:i_fitness/views/privacy_page.dart';
 import 'package:flutter/material.dart';

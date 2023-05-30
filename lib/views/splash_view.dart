@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
 import 'package:i_fitness/views/home.dart';
-import 'package:i_fitness/views/login_view.dart';
+import 'package:i_fitness/regis/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';

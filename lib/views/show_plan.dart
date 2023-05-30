@@ -2,6 +2,8 @@ import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../styles/app_colors.dart';
+
 class ShowPlanPage extends StatelessWidget {
   const ShowPlanPage({Key? key}) : super(key: key);
 
@@ -59,8 +61,8 @@ class ShowPlanPage extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 15, top: 6),
-                child: MyWidgets.textView('12 - Week Body \nTransformation', Colors.white, 20,
+                padding: const EdgeInsets.only(left: 15, top: 16),
+                child: MyWidgets.textView('All plans for your fitness friend', Colors.white, 18,
                     fontWeight: FontWeight.bold),
               ),
               Padding(
@@ -74,119 +76,72 @@ class ShowPlanPage extends StatelessWidget {
                   MyWidgets.textView('  Premium training plan', Colors.white, 14)
                 ],
               ),const SizedBox(height: 5,),
-              Row(
-                children: [
-                  const SizedBox(width: 15,),
-                  const Icon(Icons.flag,color: Colors.white,),
-                  const SizedBox(width: 8,),
-                  Expanded(
-                    child: MyWidgets.textView(
-                        'Weather you want to build muscle,'
-                        ' lose weight or just commit to getting fit,'
-                        ' this plan will give you the result you want ', Colors.white, 14),
-                  )
-                ],
-              ),const SizedBox(height: 5,),
-              Row(
-                children: [
-                  const SizedBox(width: 15,),
-                  const Icon(Icons.calendar_month_outlined,color: Colors.white,),
-                  MyWidgets.textView('  12 weeks', Colors.white, 14)
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 5.0),
-                child: Container(
-                  height: 1,
-                  width: double.infinity,
-                  color: Colors.grey,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 15),
-                child: MyWidgets.textView('Sample Plan Week', Colors.white, 18),
-              ),
-              SizedBox(
-                height: 200,
-                // decoration: const BoxDecoration(border: Border.symmetric(horizontal: BorderSide(color: Colors.grey))),
-                child: ListView.builder(
-                  padding: const EdgeInsets.only(top: 0),
-                  itemCount: 7,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(bottom: 15.0),
-                        child: Row(
-                          children: [
-                            const SizedBox(width: 15,),
-                            Container(height: 35,width: 35,
-                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: Colors.grey[600]),
-                              child: Center(child: MyWidgets.textView('MON', Colors.white, 11)),
-                            ),const SizedBox(width: 10),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                MyWidgets.textView(' Workout 1 ', Colors.white, 14),
-                                MyWidgets.textView(' Jumping jacks, knee push ups squats, les raises, pause ',
-                                    Colors.white, 11),
+              ListView.builder(
+                itemCount: 2,
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemBuilder: (context, index) {
+                return Container(
+                  margin: EdgeInsets.symmetric(horizontal: 15,vertical: 10),
+                  decoration: BoxDecoration( 
+                    borderRadius: BorderRadius.circular(5),
+                    color: Colors.white70,),
+                  child: ListTile(
+                    //horizontalTitleGap: 10,
+                    titleAlignment: ListTileTitleAlignment.center,
+                    leading: Container(
+                      height: 40,width: 40,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          image: DecorationImage(image: AssetImage('assets/images/gym_g.png'),fit: BoxFit.cover),
+                          borderRadius: BorderRadius.circular(5)),
+                    ),
+                    title: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Fitness premium plan',
+                            style: TextStyle(fontSize: 15,color: AppColors.themeColor)),
+                        MyWidgets.textView('\$  1,999/month', Colors.black, 15),
+                        SizedBox(height: 5,)
+                      ],
+                    ),
+                    subtitle: Text('Short Description Short Description '),
+                    trailing:  InkWell (
+                      onTap: () {
+
+                      },
+                      child: Container(
+                        height: 30,
+                        width: 100,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                                Colors.blueAccent,
+                                AppColors.themeColor,
                               ],
                             )
-                          ],
                         ),
-                      );
-                    },
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 2.0),
-                child: Container(
-                  height: 1,
-                  width: double.infinity,
-                  color: Colors.grey,
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15),
-                    child: MyWidgets.textView('What people are saying', Colors.white, 17.5),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 10),
-                    child: MyWidgets.textView('See More', Colors.white, 16),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 110,
-                child: ListView.builder(
-                  padding: const EdgeInsets.all(0),
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(bottom: 15.0,top: 5),
-                      child: Row(
-                        children: [
-                          const SizedBox(width: 15,),
-                          const CircleAvatar(
-                            radius: 15,
-                              backgroundImage: AssetImage('assets/images/profile.png')),
-                          const SizedBox(width: 10),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              MyWidgets.textView(' UserName', Colors.white, 14),
-                              MyWidgets.textView(' Comments,Comments,Comments,',
-                                  Colors.white, 11),
-                            ],
-                          )
-                        ],
+                        child: Center(
+                            child: MyWidgets.textView('Buy now', Colors.white, 15,)),
                       ),
-                    );
-                  },
+                    ) ,
+                  ),
+                );
+              },),
+              SizedBox(height: 20,),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Text('Just pays a certain sum every month so that '
+                    'You may use the gym\'s services daily. Monthly memberships'
+                    ' can also be turned into yearly memberships. If You'
+                    ' like coming to our gym to take fitness classes, for example,'
+                    ' then you also have the option to pay for a longer subscription',
+                  style: TextStyle(color: Colors.white),
                 ),
-              ),
-
+              )
 
               //Add widget here...
             ],

@@ -186,11 +186,14 @@ class _ProgressPageState extends State<ProgressPage> {
                       height: 150,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: 10,
+                        itemCount: 4,
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.only(
-                                left: 20, top: 8, bottom: 8),
+                                left: 20,
+                                top: 8,
+                                bottom: 8,
+                            ),
                             child: InkWell(
                               onTap: () {
                                 Get.to(() => const ChallengesPage());
@@ -457,7 +460,7 @@ class _ProgressPageState extends State<ProgressPage> {
   // var imageFile;
   List<File>? imageFileList = [];
   _getFromCamera() async {
-    PickedFile? pickedFile = await ImagePicker().getImage(
+     XFile? pickedFile = await ImagePicker().pickImage(
       source: ImageSource.camera,
       maxWidth: 1800,
       maxHeight: 1800,

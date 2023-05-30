@@ -27,7 +27,7 @@ class ChallengesPage extends StatelessWidget {
               ),
               const HeaderView(4),
               Padding(
-                padding: const EdgeInsets.only(top: 5.0, left: 5, right: 5),
+                padding: const EdgeInsets.only(top: 5, left: 5, right: 5),
                 child: Container(
                   height: 1,
                   width: double.infinity,

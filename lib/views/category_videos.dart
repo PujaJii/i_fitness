@@ -1,5 +1,5 @@
 import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
-import 'package:i_fitness/views/new_view.dart';
+import 'package:i_fitness/video_controllers/new_view.dart';
 import 'package:i_fitness/views/notification.dart';
 import 'package:i_fitness/views/profile.dart';
 import 'package:i_fitness/views/start_workout.dart';
@@ -62,7 +62,7 @@ class CategoryVideos extends StatelessWidget {
                               child: const Icon(Icons.arrow_back_ios,color: Colors.white),
                             ),
                           ),
-                          MyWidgets.textView(controller.videoList[0].type!, Colors.white, 25),
+                          MyWidgets.textView(controller.videoList[0].type.toString(), Colors.white, 25),
                           Row(
                             children: [
                               InkWell(
@@ -70,7 +70,8 @@ class CategoryVideos extends StatelessWidget {
                                     Get.to(() => const NotificationPage());
                                   },
                                   child: const Icon(Icons.notifications_on_outlined,
-                                    color: Colors.white,size: 26,)),
+                                    color: Colors.white,size: 26,)
+                              ),
                               const SizedBox(width: 20,),
                               InkWell(
                                 onTap: () {

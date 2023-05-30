@@ -5,7 +5,7 @@ import '../apis/user_api.dart';
 import '../styles/commonmodule/my_alert_dilog.dart';
 import '../styles/commonmodule/my_snack_bar.dart';
 import '../views/home.dart';
-import '../views/register1.dart';
+import '../regis/register1.dart';
 
 
 class UserController extends GetxController{

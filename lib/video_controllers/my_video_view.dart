@@ -26,17 +26,20 @@ class _MyVideoViewState extends State<MyVideoView> {
   @override
   void initState() {
     _controllerYoutube = YoutubePlayerController(
-      initialVideoId: YoutubePlayer.convertUrlToId(widget.url)!,
+      initialVideoId: YoutubePlayer.convertUrlToId(widget.url).toString(),
+
       flags: YoutubePlayerFlags(
         autoPlay: true,
         mute: false,
+        //hideControls: true,
+
       ),
     );
     _controller = VideoPlayerController.network(widget.url);
     _initializeVideoPlayerFuture = _controller.initialize();
     _controller.play();
     _controller.setLooping(true);
-    _controller.addListener(() { });
+    _controller.addListener(() {  });
     // _controller.initialize().then((value) => _controller.play());
     super.initState();
   }
@@ -44,6 +47,7 @@ class _MyVideoViewState extends State<MyVideoView> {
   @override
   void dispose() {
     _controller.dispose();
+    _controllerYoutube.dispose();
     super.dispose();
   }
 
@@ -60,8 +64,8 @@ class _MyVideoViewState extends State<MyVideoView> {
                 fit: BoxFit.cover,
               )
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          ListView(
+           // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 50,),
               const HeaderView(9),
@@ -84,47 +88,41 @@ class _MyVideoViewState extends State<MyVideoView> {
                 future: _initializeVideoPlayerFuture,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.done) {
-                    return AspectRatio(
-                          aspectRatio: _controller.value.aspectRatio,
-                          child: Stack(
+                    return
+                      // AspectRatio(
+                      //     aspectRatio: _controller.value.aspectRatio,
+                      //     child:
+
+                          Stack(
                             children: [
-                              VideoPlayer(_controller),
-                              InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    if (_controller.value.isPlaying) {
-                                      _controller.pause();
-                                    } else {
-                                      _controller.play();
-                                    }
-                                  });
-                                },
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  color: _controller.value.isPlaying? Colors.transparent: Colors.black26,
-                                  child: _controller.value.isPlaying? Container():
-                                  const Icon(Icons.play_arrow,color: Colors.white,size: 50),
-                                ),
-                              ),
-                              Positioned(
-                                bottom: 5,
-                                left: 0,
-                                right: 0,
-                                child:
-                                YoutubePlayer(
-                                  controller: _controllerYoutube,
-                                  showVideoProgressIndicator: true,
-                                ),
-                                // VideoProgressIndicator(_controller,
-                                //   colors: VideoProgressColors(playedColor: AppColors.themeColorTwo),
-                                //   allowScrubbing: true,
-                                //   padding: const EdgeInsets.symmetric(horizontal: 5),
-                                // ),
+                              // VideoPlayer(_controller),
+                              // InkWell(
+                              //   onTap: () {
+                              //     setState(() {
+                              //       if (_controller.value.isPlaying) {
+                              //         _controller.pause();
+                              //       } else {
+                              //         _controller.play();
+                              //       }
+                              //     });
+                              //   },
+                              //   child: Container(
+                              //     alignment: Alignment.center,
+                              //     color: _controller.value.isPlaying? Colors.transparent: Colors.black26,
+                              //     child: _controller.value.isPlaying? Container():
+                              //     const Icon(Icons.play_arrow,color: Colors.white,size: 50),
+                              //   ),
+                              // ),
+                              YoutubePlayer(
+                                controller: _controllerYoutube,
+                                aspectRatio: 1,
+                                showVideoProgressIndicator: true,
                               ),
                             ],
-                          )
-                    );
-                  } else {
+                          );
+                    // );
+                  }
+                  else {
                     return Padding(
                       padding: const EdgeInsets.only(top: 100.0),
                       child: Center(child: CircularProgressIndicator(color: AppColors.themeColor,)),

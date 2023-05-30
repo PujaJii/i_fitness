@@ -3,8 +3,8 @@ import 'package:i_fitness/styles/app_colors.dart';
 import 'package:i_fitness/styles/commonmodule/header.dart';
 import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
 import 'package:i_fitness/views/blogSeeMore.dart';
-import 'package:i_fitness/views/new_view.dart';
-import 'package:i_fitness/views/my_video_view.dart';
+import 'package:i_fitness/video_controllers/new_view.dart';
+import 'package:i_fitness/video_controllers/my_video_view.dart';
 import 'package:i_fitness/views/video_see_more.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -71,9 +71,7 @@ class HomeView extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 5,
-                      ),
+                      const SizedBox(height: 5,),
                       SizedBox(
                           height: 240,
                           child: ListView.builder(
@@ -99,7 +97,6 @@ class HomeView extends StatelessWidget {
                                     ),
                                     margin: const EdgeInsets.all(8),
                                     child:
-
                                     NewView(controller
                                         .videoList[index].videoUrl!)),
                               );
@@ -168,13 +165,14 @@ class HomeView extends StatelessWidget {
                                     children: [
                                       Container(
                                         height: 20,
-                                        width: 70,
+                                        width: 80,
+                                       // padding: EdgeInsets.symmetric(horizontal: 5),
                                         decoration: const BoxDecoration(
                                           color: Colors.black54
                                         ),
                                         child: Center(
                                             child: MyWidgets.textView(controller.bolgList[index].title!,
-                                                Colors.white,11)
+                                                Colors.white,10)
                                         ),
                                       ),
                                       MyWidgets.textView(controller.bolgList[index].title!, Colors.white , 14),
@@ -186,9 +184,7 @@ class HomeView extends StatelessWidget {
                           },
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
+                      const SizedBox(height: 10,),
                       Padding(
                         padding: const EdgeInsets.only(top: 5),
                         child: Container(
