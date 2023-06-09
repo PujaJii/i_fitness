@@ -2,24 +2,25 @@ import 'dart:convert';
 
 import 'package:global_configuration/global_configuration.dart';
 import 'package:http/http.dart' as http;
-import 'package:i_fitness/models/subscription_model.dart';
+import 'package:i_fitness/models/payment_model.dart';
 
 
-class SubscribeApi{
+
+class PaymentApi{
 
   static var client = http.Client();
 
-  static Future<SubscriptionModel> subscribe(String User_Id, String PlanId,String Amt) async {
+  static Future<PaymentModel> proceedPay(String Id, String Amt,String Txn_Id) async {
     var baseUrl = GlobalConfiguration().get('base_url');
 
     var headers = {
       'Content-Type': 'application/json'
     };
-    var request = http.Request('POST', Uri.parse('${baseUrl}SubscriptionApi/Subscription'));
+    var request = http.Request('POST', Uri.parse('${baseUrl}SubscriptionApi/Payment'));
     request.body = json.encode({
-      "User_Id": User_Id,
-      "PlanId": PlanId,
-      "Amt": Amt
+      "Id": Id,
+      "Amt": Amt,
+      "Txn_Id": Txn_Id
     });
     request.headers.addAll(headers);
 
@@ -27,8 +28,8 @@ class SubscribeApi{
 
     if (response.statusCode == 200) {
       var jsonString = await response.stream.bytesToString();
-      return subscriptionModelFromJson(jsonString);
+      return paymentModelFromJson(jsonString);
     }
-    return subscriptionModelFromJson(response.reasonPhrase!);
+    return paymentModelFromJson(response.reasonPhrase!);
   }
 }

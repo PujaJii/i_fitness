@@ -1,5 +1,5 @@
 import 'package:i_fitness/styles/app_colors.dart';
-import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
+import 'package:i_fitness/styles/common_module/my_widgets.dart';
 import 'package:i_fitness/views/show_plan.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';

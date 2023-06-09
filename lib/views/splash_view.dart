@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
+import 'package:i_fitness/styles/common_module/my_widgets.dart';
 import 'package:i_fitness/views/home.dart';
 import 'package:i_fitness/regis/login_view.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +10,15 @@ import '../styles/app_colors.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({Key? key}) : super(key: key);
+
+
   @override
   Widget build(BuildContext context) {
+    printData(){
+      for(int i=0;i<=100;i++){
+        print('$i abc');
+      }
+    }
     var box = GetStorage();
 //    print('userId`````````````: ${box.read('userId')}');
     Timer(const Duration(seconds: 4), () {
@@ -32,7 +39,6 @@ class SplashView extends StatelessWidget {
                 height: MediaQuery.of(context).size.height,
                 child: Image.asset('assets/images/spbg1.jpg', fit: BoxFit.cover,)
             ),
-            //getstbg.png
             Positioned(
                 left: 0,
                 right: 0,
@@ -40,14 +46,13 @@ class SplashView extends StatelessWidget {
                   tag: 'logo',
                     child: Image.asset('assets/images/logo.png', scale: 9))
             ),
-
             Positioned(
                 left: 35,
                 right: 35,
                 bottom: 15,
                 child: Column(
                   children: [
-                    InkWell(
+                    InkWell (
                         onTap: () {
                           if(box.read('isLoading') == true){
                             Get.offAll(()=>const HomePage());
@@ -67,7 +72,7 @@ class SplashView extends StatelessWidget {
                               Colors.blueAccent,
                             ],
                           )
-                          ),
+                         ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

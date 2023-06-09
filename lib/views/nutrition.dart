@@ -1,10 +1,10 @@
-import 'package:i_fitness/styles/commonmodule/header.dart';
-import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
+import 'package:i_fitness/styles/common_module/header.dart';
+import 'package:i_fitness/styles/common_module/my_widgets.dart';
 import 'package:i_fitness/views/daily_videos.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../styles/commonmodule/blogs.dart';
+import '../styles/common_module/blogs.dart';
 
 class NutritionPage extends StatelessWidget {
   const NutritionPage({Key? key}) : super(key: key);

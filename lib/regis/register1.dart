@@ -1,6 +1,6 @@
 import 'package:i_fitness/styles/app_colors.dart';
 import 'package:i_fitness/styles/button_style.dart';
-import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
+import 'package:i_fitness/styles/common_module/my_widgets.dart';
 import 'package:i_fitness/regis/register2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

@@ -1,4 +1,4 @@
-import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
+import 'package:i_fitness/styles/common_module/my_widgets.dart';
 import 'package:i_fitness/video_controllers/new_view.dart';
 import 'package:i_fitness/views/notification.dart';
 import 'package:i_fitness/views/profile.dart';

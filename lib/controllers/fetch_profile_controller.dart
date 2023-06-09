@@ -15,7 +15,7 @@ class FetchProfileController extends GetxController{
   fetchProfile() async {
     try {
       isLoading(true);
-      var apiResponse = await FetchProfileApi.fetchProfile(box.read('id').toString());
+      var apiResponse = await FetchProfileApi.fetchProfile();
 
       if (apiResponse != null) {
         if (apiResponse.status == 'success') {

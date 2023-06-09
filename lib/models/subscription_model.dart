@@ -11,7 +11,7 @@ String subscriptionModelToJson(SubscriptionModel data) => json.encode(data.toJso
 class SubscriptionModel {
   String? status;
   String? msg;
-  List<SubscribeInfo>? data;
+  List<DataList>? data;
 
   SubscriptionModel({
     this.status,
@@ -22,7 +22,7 @@ class SubscriptionModel {
   factory SubscriptionModel.fromJson(Map<String, dynamic> json) => SubscriptionModel(
     status: json["status"],
     msg: json["msg"],
-    data: json["data"] == null ? [] : List<SubscribeInfo>.from(json["data"]!.map((x) => SubscribeInfo.fromJson(x))),
+    data: json["data"] == null ? [] : List<DataList>.from(json["data"]!.map((x) => DataList.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
@@ -32,16 +32,16 @@ class SubscriptionModel {
   };
 }
 
-class SubscribeInfo {
+class DataList {
   int? id;
   int? planId;
   String? startDate;
   String? endDate;
   bool? status;
-  int? amt;
+  double? amt;
   String? paymentStatus;
 
-  SubscribeInfo({
+  DataList({
     this.id,
     this.planId,
     this.startDate,
@@ -51,7 +51,7 @@ class SubscribeInfo {
     this.paymentStatus,
   });
 
-  factory SubscribeInfo.fromJson(Map<String, dynamic> json) => SubscribeInfo(
+  factory DataList.fromJson(Map<String, dynamic> json) => DataList(
     id: json["Id"],
     planId: json["PlanId"],
     startDate: json["Start_Date"],

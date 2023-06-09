@@ -1,5 +1,6 @@
+import 'package:i_fitness/regis/login_view.dart';
 import 'package:i_fitness/styles/app_colors.dart';
-import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
+import 'package:i_fitness/styles/common_module/my_widgets.dart';
 import 'package:i_fitness/views/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -145,7 +146,7 @@ class _Register2State extends State<Register2> {
                          onTap: () {
                            setState(() {
                              if(changeBtn){
-                               Get.offAll(() => const HomePage());
+                               Get.offAll(() => const LoginView());
                              }
                            });
                          },

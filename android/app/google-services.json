@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "145724865813",
+    "project_id": "tutorial-cc958",
+    "storage_bucket": "tutorial-cc958.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:145724865813:android:4a61fd7a58ca84f082bd1c",
+        "android_client_info": {
+          "package_name": "com.example.i_fitness"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "145724865813-u904f9r1ajc61v7b4bshqq2d7ql80iej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtin2R7dmNtSsvYPU0U_p5EIuwm8HSQ9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "145724865813-u904f9r1ajc61v7b4bshqq2d7ql80iej.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "145724865813-1f8pvm1g6ln6ta6agpmt0nsl8juikas1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.tutorial"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

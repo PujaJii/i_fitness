@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import '../apis/edit_profile_api.dart';
-import '../styles/commonmodule/my_alert_dilog.dart';
-import '../styles/commonmodule/my_snack_bar.dart';
+import '../styles/common_module/my_alert_dialog.dart';
+import '../styles/common_module/my_snack_bar.dart';
 import '../views/profile.dart';
 
 class EditProfileController extends GetxController{

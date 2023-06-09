@@ -4,11 +4,11 @@ import 'package:get_storage/get_storage.dart';
 import '../views/home.dart';
 import '../apis/log_in_api.dart';
 import '../models/log_in_model.dart';
-import '../styles/commonmodule/my_alert_dilog.dart';
-import '../styles/commonmodule/my_snack_bar.dart';
+import '../styles/common_module/my_alert_dialog.dart';
+import '../styles/common_module/my_snack_bar.dart';
 
 
-class LogInController extends GetxController{
+class LogInController extends GetxController {
 
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
@@ -32,13 +32,12 @@ class LogInController extends GetxController{
         box.write('number', loginList[0].phoneNo);
         box.write('email', email.text);
         box.write('token', api_response.token);
+        box.write('isSubscribe', api_response.isSubscribe);
         box.write('isLoading', true);
         // print('userdata------------${api_response.isSubscribe}');
         // print('userdata------------${api_response.previousStatus}');
         Get.offAll(() => const HomePage());
-
         print(loginList);
-
         MySnackbar.successSnackBar('Welcome','Log in successful');
       }
       else if(api_response.status=='failed'){

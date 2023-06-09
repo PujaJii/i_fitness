@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:global_configuration/global_configuration.dart';
 import 'package:i_fitness/controllers/fetch_profile_controller.dart';
 import 'package:i_fitness/styles/app_colors.dart';
-import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
+import 'package:i_fitness/styles/common_module/my_widgets.dart';
 import 'package:i_fitness/views/edit_profile.dart';
 import 'package:i_fitness/regis/login_view.dart';
 import 'package:i_fitness/views/notification.dart';
@@ -434,7 +434,8 @@ class _ProfilePageState extends State<ProfilePage> {
               style: TextStyle(fontSize: 15)),
           actions: [
             ElevatedButton(
-              style: curveButtonStyleThemeColor,
+              //style: curveButtonStyleThemeColor,
+              style: ButtonStyle(backgroundColor: MaterialStateProperty.all(AppColors.themeColor)),
               child:
                   const Text('Cancel', style: TextStyle(color: Colors.white)),
               onPressed: () {
@@ -442,7 +443,8 @@ class _ProfilePageState extends State<ProfilePage> {
               },
             ),
             ElevatedButton(
-              style: curveButtonStyleThemeColor,
+              //style: curveButtonStyleThemeColor,
+              style: ButtonStyle(backgroundColor: MaterialStateProperty.all(AppColors.themeColor)),
               child:
                   const Text('Log Out', style: TextStyle(color: Colors.white)),
               onPressed: () {

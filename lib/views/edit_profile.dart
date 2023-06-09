@@ -10,7 +10,7 @@ import 'package:image_picker/image_picker.dart';
 
 import '../styles/app_colors.dart';
 import '../styles/button_style.dart';
-import '../styles/commonmodule/my_widgets.dart';
+import '../styles/common_module/my_widgets.dart';
 
 
 class EditProfile extends StatefulWidget {

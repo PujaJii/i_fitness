@@ -4,7 +4,7 @@ import 'package:i_fitness/controllers/edit_controller.dart';
 
 import '../styles/app_colors.dart';
 import '../styles/button_style.dart';
-import '../styles/commonmodule/my_widgets.dart';
+import '../styles/common_module/my_widgets.dart';
 
 
 

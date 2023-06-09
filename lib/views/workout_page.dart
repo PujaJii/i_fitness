@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:inview_notifier_list/inview_notifier_list.dart';
 import '../styles/app_colors.dart';
-import '../styles/commonmodule/header.dart';
-import '../styles/commonmodule/my_widgets.dart';
+import '../styles/common_module/header.dart';
+import '../styles/common_module/my_widgets.dart';
 import 'customise_workout.dart';
 
 
@@ -115,7 +115,6 @@ class WorkOut extends StatelessWidget {
                           height: 200,
                           child:
                           InViewNotifierList(
-
                             scrollDirection: Axis.horizontal,
                             itemCount: controller.videoList.length,
                             isInViewPortCondition: (double deltaTop, double deltaBottom, double viewPortDimension)

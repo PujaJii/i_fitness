@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../styles/commonmodule/my_widgets.dart';
+import '../styles/common_module/my_widgets.dart';
 
 
 

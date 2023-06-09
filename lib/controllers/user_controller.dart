@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import '../apis/user_api.dart';
-import '../styles/commonmodule/my_alert_dilog.dart';
-import '../styles/commonmodule/my_snack_bar.dart';
+import '../styles/common_module/my_alert_dialog.dart';
+import '../styles/common_module/my_snack_bar.dart';
 import '../views/home.dart';
 import '../regis/register1.dart';
 

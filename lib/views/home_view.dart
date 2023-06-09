@@ -1,7 +1,7 @@
 import 'package:i_fitness/controllers/home_content_controller.dart';
 import 'package:i_fitness/styles/app_colors.dart';
-import 'package:i_fitness/styles/commonmodule/header.dart';
-import 'package:i_fitness/styles/commonmodule/my_widgets.dart';
+import 'package:i_fitness/styles/common_module/header.dart';
+import 'package:i_fitness/styles/common_module/my_widgets.dart';
 import 'package:i_fitness/views/blogSeeMore.dart';
 import 'package:i_fitness/video_controllers/new_view.dart';
 import 'package:i_fitness/video_controllers/my_video_view.dart';
