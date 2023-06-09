@@ -67,7 +67,7 @@ class _MyVideoViewState extends State<MyVideoView> {
           ListView(
            // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 50,),
+             // const SizedBox(height: 50,),
               const HeaderView(9),
               Padding(
                 padding: const EdgeInsets.only(top: 5),

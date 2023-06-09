@@ -29,7 +29,7 @@ class EditProfileController extends GetxController{
 
       if(api_response.status=='success') {
 
-        Get.offAll(() => const ProfilePage(1542));
+        Get.off(() => const ProfilePage(1542));
         MySnackbar.successSnackBar('Updated', api_response.msg.toString());
       }
       else if(api_response.status=='failed'){

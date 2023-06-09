@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -14,14 +15,25 @@ class LogInController extends GetxController {
   TextEditingController password = TextEditingController();
 
   var isLoading = false.obs;
+  var fcmToken;
+  getToken() async {
+    fcmToken = await FirebaseMessaging.instance.getToken();
+    print('My FCM .......... $fcmToken');
+  }
 
+
+  @override
+  void onInit() {
+    getToken();
+    super.onInit();
+  }
 
   getLogIn () async {
     MyAlertDialog.circularProgressDialog();
     final box = GetStorage();
     var loginList = <UserInfo>[].obs;
     isLoading(true);
-    var api_response = await LogInApi.getLogIn(email.text,password.text);
+    var api_response = await LogInApi.getLogIn(email.text,password.text,fcmToken);
 
     if(api_response!=null){
 

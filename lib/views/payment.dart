@@ -75,11 +75,12 @@ class _PaymentPageState extends State<PaymentPage> {
   }
 
   void onCheckOut() async {
-    String payAmount = widget.list[0].amt.toString();
-    print(widget.list[0].amt.toString());
+    var payAmount = widget.list[0].amt.toString();
+    // int myAmount = int.parse(payAmount);
+     print('my amount .. $payAmount');
     var options = {
       'key': 'rzp_test_UBnA43TkHx28tU',/// Remaining
-      'amount': payAmount,
+      'amount': (double.parse(payAmount)*100).roundToDouble().toString(),
       'name': box.read('name'),
       'description': widget.planName.toString(),
       'prefill': {

@@ -9,7 +9,7 @@ class LogInApi {
 
   static var client = http.Client();
 
-  static Future<LogInModel> getLogIn(String Email_Id, String Password) async {
+  static Future<LogInModel> getLogIn(String Email_Id, String Password,String deviceId) async {
     var baseUrl = GlobalConfiguration().get('base_url');
 
     var headers = {
@@ -18,7 +18,8 @@ class LogInApi {
     var request = http.Request('POST', Uri.parse('${baseUrl}RegisterApi/Login'));
     request.body = json.encode({
       "Email_Id": Email_Id,
-      "Password": Password
+      "Password": Password,
+      "deviceId": deviceId,
     });
     request.headers.addAll(headers);
 

@@ -19,6 +19,7 @@ class _LoginViewState extends State<LoginView> {
   LogInController logInController = Get.put(LogInController());
   final _formKey = GlobalKey<FormState>();
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

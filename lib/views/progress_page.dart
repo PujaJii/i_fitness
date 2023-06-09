@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:i_fitness/styles/app_colors.dart';
@@ -10,6 +11,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../controllers/all_images_controller.dart';
+import '../controllers/upload_image_controller.dart';
 
 class ProgressPage extends StatefulWidget {
   const ProgressPage({Key? key}) : super(key: key);
@@ -20,6 +22,7 @@ class ProgressPage extends StatefulWidget {
 
 class _ProgressPageState extends State<ProgressPage> {
   FetchImagesController fetchImagesController =  Get.put(FetchImagesController());
+  UploadImageController uploadImageController = Get.put(UploadImageController());
 
   @override
   Widget build(BuildContext context) {
@@ -341,7 +344,8 @@ class _ProgressPageState extends State<ProgressPage> {
                                                 onTap: () {
                                                   // imageFileList!.remove(
                                                   //     imageFileList![index]);
-                                                  // setState(() {});
+                                                   setState(() {});
+                                                  uploadImageController.deleteImage(controller.list[index].id.toString());
                                                 },
                                                 child: const Icon(
                                                   Icons.delete_forever,
@@ -377,7 +381,7 @@ class _ProgressPageState extends State<ProgressPage> {
                             ),
                             InkWell(
                               onTap: () {
-                                _getFromCamera();
+                                _showImageSourceDialog();
                                 setState(() {});
                               },
                               child: Container(
@@ -515,18 +519,72 @@ class _ProgressPageState extends State<ProgressPage> {
   // }
   // var imageFile;
   List<File> imageFileList = [];
-  _getFromCamera() async {
-     XFile? pickedFile = await ImagePicker().pickImage(
-      source: ImageSource.camera,
-      maxWidth: 1800,
-      maxHeight: 1800,
+  // _getFromCamera() async {
+  //    XFile? pickedFile = await ImagePicker().pickImage(
+  //     source: ImageSource.camera,
+  //     maxWidth: 1800,
+  //     maxHeight: 1800,
+  //   );
+  //   if (pickedFile != null) {
+  //     imageFileList.add(File(pickedFile.path));
+  //     setState(() {
+  //       imageFileList;
+  //      // print(imageFile.toString().length);
+  //     });
+  //   }
+  // }
+  Future<void> _showImageSourceDialog() async {
+    await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Select Image Source'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: <Widget>[
+                GestureDetector(
+                  child: Text('Camera'),
+                  onTap: () {
+                    _getProfileImage(ImageSource.camera);
+                    Navigator.of(context).pop();
+                  },
+                ),
+                SizedBox(height: 16),
+                GestureDetector(
+                  child: Text('Gallery'),
+                  onTap: () {
+                    _getProfileImage(ImageSource.gallery);
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+  var profileImage;
+  String myBase64 = '';
+
+  ImagePicker picker = ImagePicker();
+
+  _getProfileImage(ImageSource source) async {
+    XFile? pickedFile = await ImagePicker().pickImage(
+      source: source,
     );
     if (pickedFile != null) {
-      imageFileList.add(File(pickedFile.path));
       setState(() {
-        imageFileList;
-       // print(imageFile.toString().length);
+        profileImage = File(pickedFile.path);
       });
+      myBase64 = await convertImageToBase64(profileImage);
+      print(myBase64);
+      uploadImageController.uploadImage(myBase64);
     }
+  }
+  Future<String> convertImageToBase64(File imageFile) async {
+    List<int> imageBytes = await imageFile.readAsBytes();
+    String base64Image = base64Encode(imageBytes);
+    return base64Image;
   }
 }

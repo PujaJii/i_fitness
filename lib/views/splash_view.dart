@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:i_fitness/styles/common_module/my_widgets.dart';
 import 'package:i_fitness/views/home.dart';
 import 'package:i_fitness/regis/login_view.dart';
@@ -6,19 +7,66 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+import '../main.dart';
 import '../styles/app_colors.dart';
 
-class SplashView extends StatelessWidget {
+class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);
 
+  @override
+  State<SplashView> createState() => _SplashViewState();
+}
 
+class _SplashViewState extends State<SplashView> {
+
+  String notificationsStr = '';
+  getNotifications() {
+    //On Terminated
+    FirebaseMessaging.instance.getInitialMessage().then((event) {
+      print(event);
+      if (event != null) {
+        // listController.getTodayLists();
+
+        print("notification event: ${event.notification}, notification msg: ${event.notification!.title}");
+
+
+      }
+    });
+
+    //On Foreground
+    FirebaseMessaging.onMessage.listen((event) {
+      print(event);
+      print('Got a message whilst in the foreground!');
+      print('Message data: ${event.data}');
+      //listController.getTodayLists();
+      // if (event.notification != null) {
+      //   setState(() {
+      //     notificationsStr =
+      //     'Title : ${event.notification!.title}, Body : ${event.notification!.body} This is from Foreground State';
+      //     MySnackbar.whiteSnackbar('Notification for you', notificationsStr!);
+      //   });
+      //   print('Message also contained a notification: ${event.notification}');
+      // }
+    });
+
+    //Background
+    FirebaseMessaging.onMessageOpenedApp.listen((event) =>
+    // setState(() {
+    notificationsStr =
+    'Title : ${event.notification!.title}, Body : ${event.notification!.body} This is from Background State'
+      //  MySnackbar.whiteSnackbar('Notification for you', notificationsStr!);
+      // }),
+    );
+  }
+  @override
+  void initState() {
+    getNotifications();
+    LocalNotificationServices.initialize();
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
-    printData(){
-      for(int i=0;i<=100;i++){
-        print('$i abc');
-      }
-    }
     var box = GetStorage();
 //    print('userId`````````````: ${box.read('userId')}');
     Timer(const Duration(seconds: 4), () {
