@@ -10,7 +10,7 @@ import 'package:i_fitness/models/delete_image_model.dart';
 
 
 class DeleteImageApi{
-  static var client = http.Client();
+
   static final box = GetStorage();
 
   static Future<DeleteImageModel> deleteImage(

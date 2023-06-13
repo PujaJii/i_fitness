@@ -83,7 +83,8 @@ class _RegisterViewState extends State<RegisterView> {
                                   borderSide: BorderSide(
                                     color: AppColors.white,
                                   )),
-                            )),
+                            )
+                        ),
                       ),
                       const SizedBox(height: 10),
                       Container(

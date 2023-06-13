@@ -6,8 +6,7 @@ import '../models/all_images.dart';
 
 
 class FetchImagesApi{
-  static var client = http.Client();
-
+  // static var client = http.Client();
 
   static Future<ImageListModel> getDailyImages() async {
     final box = GetStorage();

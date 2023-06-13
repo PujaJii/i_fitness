@@ -6,6 +6,8 @@ import 'package:i_fitness/regis/register_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'forget_password.dart';
+
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -124,9 +126,14 @@ class _LoginViewState extends State<LoginView> {
                         )
                     ),
                   ),
-                 Padding(
-                   padding: const EdgeInsets.only(right: 40.0,top: 15),
-                   child: MyWidgets.textView('Forget Password ?', AppColors.offWhite, 12),
+                 InkWell(
+                   onTap: () {
+                     Get.to(()=> ForgetPassword());
+                   },
+                   child: Padding(
+                     padding: const EdgeInsets.only(right: 40.0,top: 15),
+                     child: MyWidgets.textView('Forget Password ?', AppColors.offWhite, 12),
+                   ),
                  ),
                  const SizedBox(height: 20),
                   Center(

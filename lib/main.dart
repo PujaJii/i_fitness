@@ -14,7 +14,6 @@ class LocalNotificationServices {
   FlutterLocalNotificationsPlugin();
 
   static void initialize() {
-
     InitializationSettings initializationSettings = InitializationSettings(
         android: AndroidInitializationSettings('@mipmap/launcher_icon'));
     _notificationsPlugin.initialize(initializationSettings);

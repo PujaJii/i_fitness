@@ -31,10 +31,10 @@ class SubscribeController extends GetxController{
 
       }else if(api_response.status=='failed'){
         Get.back();
-        MySnackbar.infoSnackBar('Failed','Log in failed');
+        MySnackbar.infoSnackBar('Failed',api_response.msg.toString());
       }else{
         Get.back();
-        MySnackbar.errorSnackBar('Internal Server Down', 'Log in failed');
+        MySnackbar.errorSnackBar('Internal Server Down', api_response.msg.toString());
       }
     } else{
       Get.back();

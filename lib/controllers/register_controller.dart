@@ -31,7 +31,7 @@ class RegisterController extends GetxController{
 
         box.write('name', name.text);
         box.write('email', regEmail.text);
-        box.write('isLoading', true);
+        //box.write('isLoading', true);
         box.write('isSubscribe', api_response.isSubscribe.toString());
         Get.offAll(() => const Register1());
         MySnackbar.successSnackBar('Welcome', api_response.msg.toString());
